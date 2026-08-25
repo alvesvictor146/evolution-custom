@@ -248,6 +248,34 @@ document.addEventListener('DOMContentLoaded', () => {
     if (footer) footerObserver.observe(footer);
 
     /* ═══════════════════════════════════
+       AUTOPLAY & VIDEO TIMING CONTROL
+       ═══════════════════════════════════ */
+    const videos = document.querySelectorAll('.video-placeholder video');
+    videos.forEach(v => {
+        v.muted = true;
+        const playPromise = v.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                document.addEventListener('touchstart', () => v.play(), { once: true });
+                document.addEventListener('click', () => v.play(), { once: true });
+            });
+        }
+    });
+
+    const videoServico2 = document.getElementById('video-servico-2');
+    if (videoServico2) {
+        videoServico2.currentTime = 2;
+        videoServico2.addEventListener('loadedmetadata', () => {
+            videoServico2.currentTime = 2;
+        });
+        videoServico2.addEventListener('timeupdate', () => {
+            if (videoServico2.currentTime < 1.8 && !videoServico2.seeking) {
+                videoServico2.currentTime = 2;
+            }
+        });
+    }
+
+    /* ═══════════════════════════════════
        HERO AMBIENT GRADIENT (dynamic)
        ═══════════════════════════════════ */
     // Add CSS variable support for ambient car glow
@@ -267,6 +295,48 @@ document.addEventListener('DOMContentLoaded', () => {
         transition: background 0.8s ease;
     `;
     document.getElementById('heroReveal') || document.querySelector('.hero-section').appendChild(ambientEl);
+
+    /* ═══════════════════════════════════
+       CUSTOM CURSOR GREEN HIGHLIGHT LOGIC
+       ═══════════════════════════════════ */
+    const cursorDot  = document.getElementById('cursorDot');
+    const cursorGlow = document.getElementById('cursorGlow');
+
+    if (cursorDot && cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+        let mouseX = -100, mouseY = -100;
+        let glowX  = -100, glowY  = -100;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+        });
+
+        function animateCursor() {
+            glowX += (mouseX - glowX) * 0.18;
+            glowY += (mouseY - glowY) * 0.18;
+            cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Expand cursor glow over interactive elements
+        const hoverTargetSelector = 'a, button, input, .color-btn, .service-card, .video-card, .award-card, .review-card, .logo';
+        document.querySelectorAll(hoverTargetSelector).forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+        });
+
+        // Hide cursor when pointer leaves window
+        document.addEventListener('mouseleave', () => {
+            cursorDot.style.opacity  = '0';
+            cursorGlow.style.opacity = '0';
+        });
+        document.addEventListener('mouseenter', () => {
+            cursorDot.style.opacity  = '1';
+            cursorGlow.style.opacity = '1';
+        });
+    }
 
 });
 
