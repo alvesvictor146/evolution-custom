@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Raleway:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
 
@@ -56,83 +56,91 @@
             <div class="led-rays"></div>
         </div>
 
-        <!-- Car layers with Laser Scanner & Vignette -->
-        <div class="hero-car-wrap" id="heroCarWrap">
+        <!-- ══ HERO SERVICE MEDIA (Video/Imagem por Serviço) ══ -->
+        <div class="hero-media-wrap" id="heroMediaWrap">
+            <!-- Vignette / Blend layer -->
+            <div class="hero-media-vignette"></div>
+            <!-- Laser scanner effect line -->
             <div class="laser-scanner" id="laserScanner"></div>
-            <div class="car-vignette"></div>
-            <img src="porsche_silver.jpg" alt="Porsche 911 GT3 – Evolution Custom SC"
-                 class="car-layer active" id="car-silver" draggable="false">
-            <img src="porsche_ppf_black.jpg" alt="Porsche 911 GT3 PPF Black"
-                 class="car-layer" id="car-black" draggable="false">
-            <img src="porsche_red.jpg" alt="Porsche 911 GT3 Vermelho"
-                 class="car-layer" id="car-red" draggable="false">
-            <img src="porsche_blue.jpg" alt="Porsche 911 GT3 Azul"
-                 class="car-layer" id="car-blue" draggable="false">
-            <img src="porsche_green.jpg" alt="Porsche 911 GT3 Verde"
-                 class="car-layer" id="car-green" draggable="false">
-            <img src="porsche_gold.jpg" alt="Porsche 911 GT3 Dourado"
-                 class="car-layer" id="car-gold" draggable="false">
+
+            <!-- SERVIÇO 1: Películas Nano-Cerâmicas -->
+            <div class="hero-service-slide active" id="slide-peliculas">
+                <img src="Automotive_window_film_display_2K_202609011911.jpeg"
+                     alt="Película Nano-Cerâmica – Vista interna e externa do controle térmico"
+                     class="hero-slide-img" draggable="false">
+                <video class="hero-slide-video"
+                       src="Automotive_window_film_commercial_1080p_202609011011.mp4"
+                       autoplay muted loop playsinline preload="auto" id="vid-peliculas-1"></video>
+            </div>
+
+            <!-- SERVIÇO 2: Proteção PPF -->
+            <div class="hero-service-slide" id="slide-ppf">
+                <video class="hero-slide-video active-media"
+                       src="Car_paint_protection_film_demons…_202609010958.mp4"
+                       autoplay muted loop playsinline preload="auto" id="vid-ppf-1"></video>
+            </div>
         </div>
 
-        <!-- Hero overlay -->
+        <!-- Hero overlay gradient -->
         <div class="hero-overlay"></div>
 
-        <!-- Hero content -->
-        <div class="hero-content">
-            <h1 class="reveal-text delay-1">
-                Transformamos<br>
-                <span class="text-green">sua visão</span><br>
-                em realidade.
+        <!-- HUD Badges Flutuantes — fora do media-wrap para não ser cortado pelo overflow:hidden -->
+        <div class="hero-hud-panel" id="heroHudPanel">
+            <div class="hud-chip highlight" id="hud-chip-1">
+                <i class="fa-solid fa-fire-flame-curved"></i>
+                <span id="hud-metric-1">99% Rejeição IR</span>
+            </div>
+            <div class="hud-chip" id="hud-chip-2">
+                <i class="fa-solid fa-sun"></i>
+                <span id="hud-metric-2">99.9% Proteção UV</span>
+            </div>
+            <div class="hud-chip" id="hud-chip-3">
+                <i class="fa-solid fa-temperature-arrow-down"></i>
+                <span id="hud-metric-3">-15°C no Interior</span>
+            </div>
+            <div class="hud-chip badge-tech" id="hud-chip-4">
+                <i class="fa-solid fa-microchip"></i>
+                <span id="hud-metric-4">Nano-Cerâmica Carbon</span>
+            </div>
+        </div>
+
+        <!-- Hero content (esquerda) -->
+        <div class="hero-content" id="heroContent">
+            <span class="hero-service-eyebrow reveal-text delay-1" id="heroEyebrow">
+                <i class="fa-solid fa-sun"></i> Películas Nano-Cerâmicas
+            </span>
+            <h1 class="reveal-text delay-1" id="heroTitle">
+                Proteção Térmica &<br>
+                <span class="text-green" id="heroTitleAccent">Clareza HD</span><br>
+                Nano-Cerâmica.
             </h1>
-            <p class="reveal-text delay-2">PPF · Envelopamento · Polimento · Estética Premium</p>
+            <p class="reveal-text delay-2" id="heroSubtitle">99% Rejeição de Calor · 99.9% Bloqueio UV · Sem Escurecer Vidros</p>
             <div class="hero-cta reveal-text delay-3">
-                <a href="#contact" class="btn-primary">Agendar Serviço</a>
+                <a href="#contact" class="btn-primary" id="heroCtaBtn">Agendar Serviço</a>
                 <a href="https://wa.me/5548988016270" class="btn-ghost" target="_blank">
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
         </div>
 
-        <!-- Color selector in a single line under car images -->
-        <div class="color-selector under-car" id="colorSelector">
-            <div class="color-selector-label">
-                <i class="fa-solid fa-paintbrush"></i>
-                <span>Simulador de Envelopamento & PPF:</span>
-            </div>
-            <div class="color-buttons">
-                <button class="color-btn ppf-btn active" data-car="silver" id="btn-silver"
-                        title="Original — Prata Metálico" aria-label="Cor original prata">
-                    <span class="color-swatch" style="background: linear-gradient(135deg,#c0c0c0,#808080)"></span>
-                    <span class="color-label">Original</span>
-                </button>
-                <button class="color-btn" data-car="black" id="btn-black"
-                        title="PPF Black — Preto Espelhado" aria-label="PPF preto espelhado">
-                    <span class="color-swatch ppf-swatch">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </span>
-                    <span class="color-label">PPF Black</span>
-                </button>
-                <button class="color-btn" data-car="red" id="btn-red"
-                        title="Candy Red" aria-label="Vermelho candy">
-                    <span class="color-swatch" style="background: linear-gradient(135deg,#ff1a1a,#8b0000)"></span>
-                    <span class="color-label">Candy Red</span>
-                </button>
-                <button class="color-btn" data-car="blue" id="btn-blue"
-                        title="Electric Blue" aria-label="Azul elétrico">
-                    <span class="color-swatch" style="background: linear-gradient(135deg,#007bff,#003d80)"></span>
-                    <span class="color-label">Electric Blue</span>
-                </button>
-                <button class="color-btn" data-car="green" id="btn-green"
-                        title="Lime Green" aria-label="Verde lime">
-                    <span class="color-swatch" style="background: linear-gradient(135deg,#7fff00,#2d8c00)"></span>
-                    <span class="color-label">Lime Green</span>
-                </button>
-                <button class="color-btn" data-car="gold" id="btn-gold"
-                        title="Gold Chrome" aria-label="Dourado chrome">
-                    <span class="color-swatch" style="background: linear-gradient(135deg,#ffd700,#b8860b)"></span>
-                    <span class="color-label">Gold Chrome</span>
-                </button>
-            </div>
+        <!-- SERVICE SELECTOR BUTTONS -->
+        <div class="hero-service-selector" id="heroServiceSelector">
+            <button class="svc-btn active" data-service="peliculas" id="svc-btn-peliculas">
+                <span class="svc-icon"><i class="fa-solid fa-sun"></i></span>
+                <span class="svc-info">
+                    <span class="svc-label">Películas Nano-Cerâmicas</span>
+                    <span class="svc-sublabel">Controle Térmico & UV</span>
+                </span>
+                <span class="svc-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+            </button>
+            <button class="svc-btn" data-service="ppf" id="svc-btn-ppf">
+                <span class="svc-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                <span class="svc-info">
+                    <span class="svc-label">Proteção PPF</span>
+                    <span class="svc-sublabel">Auto-Regenerativo & Anti-Impacto</span>
+                </span>
+                <span class="svc-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+            </button>
         </div>
 
         <!-- Scroll indicator -->
@@ -257,40 +265,41 @@
 
             <div class="videos-grid">
 
-                <!-- Vídeo 1: Serviço -->
+                <!-- Vídeo 1: Proteção PPF -->
                 <div class="video-card scroll-reveal">
                     <div class="video-placeholder" id="video-slot-1">
-                        <video id="video-servico-1" src="Man_wrapping_car_with_vinyl_202608251237.mp4" autoplay muted loop playsinline preload="auto"></video>
+                        <video id="video-ppf-demo" src="Paint_protection_film_video_demo…_202609011006.mp4" autoplay muted loop playsinline preload="auto"></video>
                     </div>
                     <div class="video-card-info">
-                        <h4>Processo de PPF & Envelopamento</h4>
-                        <p>Veja a aplicação profissional de vinil e proteção de alta precisão</p>
+                        <h4>Demonstração PPF Auto-Regenerativo</h4>
+                        <p>Veja o processo de aplicação e o efeito self-healing real em ação</p>
                     </div>
                 </div>
 
-                <!-- Vídeo 2: Serviço -->
+                <!-- Vídeo 2: Película Térmica -->
                 <div class="video-card scroll-reveal">
                     <div class="video-placeholder" id="video-slot-2">
-                        <video id="video-servico-2" src="Man_wrapping_car_in_pink_202608251239.mp4#t=2" autoplay muted loop playsinline preload="auto"></video>
+                        <video id="video-pelicula-demo" src="Window_film_thermal_comfort_demo…_202609011912.mp4" autoplay muted loop playsinline preload="auto"></video>
                     </div>
                     <div class="video-card-info">
-                        <h4>Envelopamento Customizado</h4>
-                        <p>Do início ao fim: transformação vibrante com acabamento de alto padrão</p>
+                        <h4>Película Nano-Cerâmica — Conforto Térmico</h4>
+                        <p>Do início ao fim: bloqueio UV e controle de temperatura comprovado</p>
                     </div>
                 </div>
 
-                <!-- Vídeo 3: Local / Anúncio (Institucional) -->
+                <!-- Vídeo 3: Comercial Institucional (featured) -->
                 <div class="video-card video-card--featured scroll-reveal">
                     <div class="video-placeholder" id="video-slot-3">
-                        <video id="video-institucional" src="Team_servicing_vehicles_in_garage_202608251304.mp4" autoplay muted loop playsinline preload="auto"></video>
+                        <video id="video-comercial" src="Storyboard_comercial_de_película…_1080p_202609011035.mp4" autoplay muted loop playsinline preload="auto"></video>
                     </div>
                     <div class="video-card-info">
-                        <h4>Conheça a Evolution Custom SC</h4>
-                        <p>Nossa estrutura, nossa equipe, nosso compromisso com a excelência</p>
+                        <h4>Evolution Custom SC — Nosso Comercial</h4>
+                        <p>Conheça a essência da Evolution Custom SC: excelência, tecnologia e paixão por carros</p>
                     </div>
                 </div>
 
             </div>
+
         </div>
     </section>
 
@@ -606,6 +615,6 @@
     <div class="custom-cursor-dot" id="cursorDot"></div>
     <div class="custom-cursor-glow" id="cursorGlow"></div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>

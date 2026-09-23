@@ -65,117 +65,193 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ═══════════════════════════════════
-       CAR COLOR SWITCHER
+       HERO SERVICE CONTROLLER
        ═══════════════════════════════════ */
-    /* ═══════════════════════════════════
-       CAR COLOR SWITCHER & WRAP SCANNER
-       ═══════════════════════════════════ */
-    const carLayers    = document.querySelectorAll('.car-layer');
-    const colorBtns    = document.querySelectorAll('.color-btn');
-    const laserScanner = document.getElementById('laserScanner');
     const heroSection  = document.getElementById('home');
+    const laserScanner = document.getElementById('laserScanner');
 
-    // Map button data-car to car layer IDs
-    const layerMap = {
-        silver: document.getElementById('car-silver'),
-        black:  document.getElementById('car-black'),
-        red:    document.getElementById('car-red'),
-        blue:   document.getElementById('car-blue'),
-        green:  document.getElementById('car-green'),
-        gold:   document.getElementById('car-gold'),
+    // HUD Elements
+    const hudMetric1 = document.getElementById('hud-metric-1');
+    const hudMetric2 = document.getElementById('hud-metric-2');
+    const hudMetric3 = document.getElementById('hud-metric-3');
+    const hudMetric4 = document.getElementById('hud-metric-4');
+
+    // Hero text elements
+    const heroEyebrow    = document.getElementById('heroEyebrow');
+    const heroTitle      = document.getElementById('heroTitle');
+    const heroTitleAccent = document.getElementById('heroTitleAccent');
+    const heroSubtitle   = document.getElementById('heroSubtitle');
+
+    // Service data map
+    const serviceData = {
+        'peliculas': {
+            eyebrowIcon: 'fa-sun',
+            eyebrow:     'Películas Nano-Cerâmicas',
+            titleLine1:  'Proteção Térmica &',
+            accent:      'Clareza HD',
+            titleLine3:  'Nano-Cerâmica.',
+            subtitle:    '99% Rejeição de Calor · 99.9% Bloqueio UV · Sem Escurecer Vidros',
+            slideId:     'slide-peliculas',
+            scanColor:   '#00d2ff',
+            scanRgb:     '0, 210, 255',
+            hudIcons:    ['fa-fire-flame-curved', 'fa-sun', 'fa-temperature-arrow-down', 'fa-microchip'],
+            hudColors:   ['#00d2ff', '#00d2ff', '#00d2ff', '#6aff2e'],
+            metrics:     ['99% Rejeição IR', '99.9% Bloqueio UV', '-15°C no Interior', 'Nano-Cerâmica Carbon'],
+        },
+        'ppf': {
+            eyebrowIcon: 'fa-shield-halved',
+            eyebrow:     'Proteção PPF',
+            titleLine1:  'Blindagem Invisível &',
+            accent:      'Auto-Regenerativa',
+            titleLine3:  'PPF Premium.',
+            subtitle:    'Self-Healing Térmico · Anti-Impacto · Hidrofobia Extrema',
+            slideId:     'slide-ppf',
+            scanColor:   '#6aff2e',
+            scanRgb:     '106, 255, 46',
+            hudIcons:    ['fa-shield-halved', 'fa-droplet', 'fa-star', 'fa-certificate'],
+            hudColors:   ['#6aff2e', '#6aff2e', '#6aff2e', '#6aff2e'],
+            metrics:     ['Self-Healing Ativo', 'Hidrofóbico Extremo', 'Anti-Impacto / Pedras', '10 Anos de Garantia'],
+        },
     };
 
-    const colorMeta = {
-        silver: { hex: '#d0d0d0', rgb: '200, 200, 200', glow: 'rgba(200, 200, 200, 0.4)' },
-        black:  { hex: '#6aff2e', rgb: '106, 255, 46',   glow: 'rgba(106, 255, 46, 0.4)' },
-        red:    { hex: '#ff2a2a', rgb: '255, 42, 42',    glow: 'rgba(255, 42, 42, 0.4)' },
-        blue:   { hex: '#00a2ff', rgb: '0, 162, 255',    glow: 'rgba(0, 162, 255, 0.4)' },
-        green:  { hex: '#6aff2e', rgb: '106, 255, 46',   glow: 'rgba(106, 255, 46, 0.4)' },
-        gold:   { hex: '#ffd700', rgb: '255, 215, 0',    glow: 'rgba(255, 215, 0, 0.4)' },
-    };
+    let currentService   = 'peliculas';
+    let isTransitioning  = false;
 
-    let currentColor = 'silver';
-    let isTransitioning = false;
+    function updateHudChip(chipEl, icon, color, text) {
+        const iconEl = chipEl.querySelector('i');
+        const textEl = chipEl.querySelector('span');
+        if (iconEl) {
+            iconEl.className = `fa-solid ${icon}`;
+            iconEl.style.color = color;
+        }
+        if (textEl) textEl.textContent = text;
+    }
 
-    function switchColor(colorKey) {
-        if (colorKey === currentColor || isTransitioning) return;
-
-        const prevLayer   = layerMap[currentColor];
-        const targetLayer = layerMap[colorKey];
-        const targetBtn   = document.getElementById('btn-' + colorKey);
-        const meta        = colorMeta[colorKey] || colorMeta.silver;
-
-        if (!targetLayer) return;
+    function switchService(key) {
+        if (key === currentService || isTransitioning) return;
+        const data = serviceData[key];
+        if (!data) return;
 
         isTransitioning = true;
 
-        // Update buttons immediately
-        colorBtns.forEach(b => b.classList.remove('active'));
-        if (targetBtn) {
-            targetBtn.classList.add('active');
-            targetBtn.style.setProperty('--active-color', meta.hex);
+        // --- Button active state ---
+        document.querySelectorAll('.svc-btn').forEach(b => b.classList.remove('active'));
+        const activeBtn = document.getElementById('svc-btn-' + key);
+        if (activeBtn) activeBtn.classList.add('active');
+
+        // --- CSS vars for laser & ambient ---
+        document.documentElement.style.setProperty('--scan-color', data.scanColor);
+        if (heroSection) heroSection.style.setProperty('--car-ambient', `rgba(${data.scanRgb}, 0.12)`);
+
+        // --- Slide transition ---
+        const prevSlide = document.getElementById(serviceData[currentService].slideId);
+        const nextSlide = document.getElementById(data.slideId);
+
+        if (prevSlide) {
+            prevSlide.classList.remove('active');
+            prevSlide.classList.add('slide-exit');
+            setTimeout(() => prevSlide.classList.remove('slide-exit'), 800);
         }
 
-        // Set CSS variables for laser color & ambient lighting
-        document.documentElement.style.setProperty('--scan-color', meta.hex);
-        document.documentElement.style.setProperty('--scan-glow', meta.glow);
-        heroSection.style.setProperty('--car-ambient', `rgba(${meta.rgb}, 0.16)`);
-
-        // Keep current layer visible underneath
-        carLayers.forEach(l => {
-            l.classList.remove('prev-layer', 'wrap-transition');
-        });
-        if (prevLayer) {
-            prevLayer.classList.add('prev-layer');
-            prevLayer.classList.remove('active');
-        }
-
-        // Prepare target layer
-        targetLayer.classList.remove('active');
-        // Force browser reflow to restart CSS keyframe animation
-        void targetLayer.offsetWidth;
-        targetLayer.classList.add('active', 'wrap-transition');
-
-        // Trigger laser scanner line
+        // Fire laser scanner
         if (laserScanner) {
             laserScanner.classList.remove('scanning');
             void laserScanner.offsetWidth;
             laserScanner.classList.add('scanning');
+            setTimeout(() => laserScanner.classList.remove('scanning'), 720);
         }
 
-        // Subtle LED Canopy pulse
+        // Activate next slide with slight delay for drama
+        setTimeout(() => {
+            if (nextSlide) {
+                nextSlide.classList.add('active');
+                // Make sure video in next slide plays
+                const vid = nextSlide.querySelector('video');
+                if (vid) {
+                    vid.currentTime = 0;
+                    vid.play().catch(() => {});
+                }
+            }
+        }, 80);
+
+        // --- LED Canopy pulse ---
         const ledCanopy = document.getElementById('ledCanopy');
         if (ledCanopy) {
-            ledCanopy.style.filter = 'brightness(1.5)';
-            setTimeout(() => {
-                ledCanopy.style.filter = 'brightness(1)';
-            }, 700);
+            ledCanopy.style.filter = 'brightness(1.8) hue-rotate(30deg)';
+            setTimeout(() => { ledCanopy.style.filter = 'brightness(1)'; }, 700);
         }
 
-        currentColor = colorKey;
-
-        // Cleanup after transition finishes
-        setTimeout(() => {
-            if (prevLayer) prevLayer.classList.remove('prev-layer');
-            targetLayer.classList.remove('wrap-transition');
-            if (laserScanner) laserScanner.classList.remove('scanning');
-            isTransitioning = false;
-        }, 720);
-    }
-
-    colorBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const colorKey = btn.getAttribute('data-car');
-            switchColor(colorKey);
+        // --- HUD update ---
+        const hudChips = [
+            document.getElementById('hud-chip-1'),
+            document.getElementById('hud-chip-2'),
+            document.getElementById('hud-chip-3'),
+            document.getElementById('hud-chip-4'),
+        ];
+        hudChips.forEach((chip, i) => {
+            if (!chip) return;
+            chip.style.opacity = '0';
+            chip.style.transform = 'translateY(-8px)';
+            setTimeout(() => {
+                updateHudChip(chip, data.hudIcons[i], data.hudColors[i], data.metrics[i]);
+                chip.style.opacity = '1';
+                chip.style.transform = 'translateY(0)';
+            }, 200 + i * 80);
         });
 
-        // Keyboard support
-        btn.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                const colorKey = btn.getAttribute('data-car');
-                switchColor(colorKey);
-            }
+        // --- Hero text update ---
+        if (heroEyebrow) {
+            heroEyebrow.style.opacity = '0';
+            setTimeout(() => {
+                heroEyebrow.innerHTML = `<i class="fa-solid ${data.eyebrowIcon}"></i> ${data.eyebrow}`;
+                heroEyebrow.style.opacity = '1';
+            }, 180);
+        }
+        if (heroTitle) {
+            heroTitle.style.opacity = '0';
+            setTimeout(() => {
+                heroTitle.innerHTML = `${data.titleLine1}<br><span class="text-green" id="heroTitleAccent">${data.accent}</span><br>${data.titleLine3}`;
+                heroTitle.style.opacity = '1';
+            }, 200);
+        }
+        if (heroSubtitle) {
+            heroSubtitle.style.opacity = '0';
+            setTimeout(() => {
+                heroSubtitle.textContent = data.subtitle;
+                heroSubtitle.style.opacity = '1';
+            }, 240);
+        }
+
+        currentService = key;
+        setTimeout(() => { isTransitioning = false; }, 820);
+    }
+
+    // Attach click handlers to service buttons
+    document.querySelectorAll('.svc-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const svc = btn.getAttribute('data-service');
+            switchService(svc);
+        });
+    });
+
+    // Auto-rotate services every 8 seconds
+    const serviceKeys = ['peliculas', 'ppf'];
+    let autoRotateIdx = 0;
+    let autoRotateTimer = setInterval(() => {
+        autoRotateIdx = (autoRotateIdx + 1) % serviceKeys.length;
+        switchService(serviceKeys[autoRotateIdx]);
+    }, 8000);
+
+    // Pause auto-rotate on user interaction
+    document.querySelectorAll('.svc-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            clearInterval(autoRotateTimer);
+            autoRotateIdx = serviceKeys.indexOf(btn.getAttribute('data-service'));
+            // Restart after 20s of inactivity
+            autoRotateTimer = setInterval(() => {
+                autoRotateIdx = (autoRotateIdx + 1) % serviceKeys.length;
+                switchService(serviceKeys[autoRotateIdx]);
+            }, 8000);
         });
     });
 
@@ -248,39 +324,33 @@ document.addEventListener('DOMContentLoaded', () => {
     if (footer) footerObserver.observe(footer);
 
     /* ═══════════════════════════════════
-       AUTOPLAY & VIDEO TIMING CONTROL
+       HERO SLIDE VIDEOS AUTOPLAY
        ═══════════════════════════════════ */
-    const videos = document.querySelectorAll('.video-placeholder video');
-    videos.forEach(v => {
+    // Ensure all hero slide videos are muted and try to play
+    document.querySelectorAll('.hero-service-slide video').forEach(v => {
         v.muted = true;
-        const playPromise = v.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(() => {
-                document.addEventListener('touchstart', () => v.play(), { once: true });
-                document.addEventListener('click', () => v.play(), { once: true });
-            });
-        }
+        v.play().catch(() => {
+            document.addEventListener('touchstart', () => v.play(), { once: true });
+            document.addEventListener('click', () => v.play(), { once: true });
+        });
     });
 
-    const videoServico2 = document.getElementById('video-servico-2');
-    if (videoServico2) {
-        videoServico2.currentTime = 2;
-        videoServico2.addEventListener('loadedmetadata', () => {
-            videoServico2.currentTime = 2;
+    /* ═══════════════════════════════════
+       GALLERY VIDEOS AUTOPLAY
+       ═══════════════════════════════════ */
+    document.querySelectorAll('.video-placeholder video').forEach(v => {
+        v.muted = true;
+        v.play().catch(() => {
+            document.addEventListener('touchstart', () => v.play(), { once: true });
+            document.addEventListener('click', () => v.play(), { once: true });
         });
-        videoServico2.addEventListener('timeupdate', () => {
-            if (videoServico2.currentTime < 1.8 && !videoServico2.seeking) {
-                videoServico2.currentTime = 2;
-            }
-        });
-    }
+    });
 
     /* ═══════════════════════════════════
        HERO AMBIENT GRADIENT (dynamic)
        ═══════════════════════════════════ */
-    // Add CSS variable support for ambient car glow
     const heroStyle = document.getElementById('home');
-    heroStyle.style.setProperty('--car-ambient', 'rgba(200,200,200,0.08)');
+    heroStyle.style.setProperty('--car-ambient', 'rgba(0, 210, 255, 0.10)');
 
     // Dynamically add ambient radial overlay
     const ambientEl = document.createElement('div');
@@ -294,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pointer-events: none;
         transition: background 0.8s ease;
     `;
-    document.getElementById('heroReveal') || document.querySelector('.hero-section').appendChild(ambientEl);
+    document.querySelector('.hero-section').appendChild(ambientEl);
 
     /* ═══════════════════════════════════
        CUSTOM CURSOR GREEN HIGHLIGHT LOGIC
