@@ -70,62 +70,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroSection  = document.getElementById('home');
     const laserScanner = document.getElementById('laserScanner');
 
-    // HUD Elements
-    const hudMetric1 = document.getElementById('hud-metric-1');
-    const hudMetric2 = document.getElementById('hud-metric-2');
-    const hudMetric3 = document.getElementById('hud-metric-3');
-    const hudMetric4 = document.getElementById('hud-metric-4');
-
     // Hero text elements
-    const heroEyebrow    = document.getElementById('heroEyebrow');
-    const heroTitle      = document.getElementById('heroTitle');
+    const heroEyebrow     = document.getElementById('heroEyebrow');
+    const heroTitle       = document.getElementById('heroTitle');
     const heroTitleAccent = document.getElementById('heroTitleAccent');
-    const heroSubtitle   = document.getElementById('heroSubtitle');
+    const heroSubtitle    = document.getElementById('heroSubtitle');
 
     // Service data map
     const serviceData = {
-        'peliculas': {
-            eyebrowIcon: 'fa-sun',
-            eyebrow:     'Películas Nano-Cerâmicas',
-            titleLine1:  'Proteção Térmica &',
-            accent:      'Clareza HD',
-            titleLine3:  'Nano-Cerâmica.',
-            subtitle:    '99% Rejeição de Calor · 99.9% Bloqueio UV · Sem Escurecer Vidros',
-            slideId:     'slide-peliculas',
-            scanColor:   '#00d2ff',
-            scanRgb:     '0, 210, 255',
-            hudIcons:    ['fa-fire-flame-curved', 'fa-sun', 'fa-temperature-arrow-down', 'fa-microchip'],
-            hudColors:   ['#00d2ff', '#00d2ff', '#00d2ff', '#6aff2e'],
-            metrics:     ['99% Rejeição IR', '99.9% Bloqueio UV', '-15°C no Interior', 'Nano-Cerâmica Carbon'],
-        },
         'ppf': {
             eyebrowIcon: 'fa-shield-halved',
             eyebrow:     'Proteção PPF',
-            titleLine1:  'Blindagem Invisível &',
-            accent:      'Auto-Regenerativa',
-            titleLine3:  'PPF Premium.',
-            subtitle:    'Self-Healing Térmico · Anti-Impacto · Hidrofobia Extrema',
+            titleLine1:  'Proteja seu patrimônio',
+            accent:      'contra pedras,',
+            titleLine3:  'riscos e sol.',
+            subtitle:    'Self Healing, hidrofóbico, brilho extremo.',
             slideId:     'slide-ppf',
             scanColor:   '#6aff2e',
             scanRgb:     '106, 255, 46',
-            hudIcons:    ['fa-shield-halved', 'fa-droplet', 'fa-star', 'fa-certificate'],
-            hudColors:   ['#6aff2e', '#6aff2e', '#6aff2e', '#6aff2e'],
-            metrics:     ['Self-Healing Ativo', 'Hidrofóbico Extremo', 'Anti-Impacto / Pedras', '10 Anos de Garantia'],
+        },
+        'peliculas': {
+            eyebrowIcon: 'fa-sun',
+            eyebrow:     'Películas Nano-Cerâmicas',
+            titleLine1:  'Proteção Térmica,',
+            accent:      'Visibilidade',
+            titleLine3:  'e Privacidade.',
+            subtitle:    'Corte computadorizado, Cuidado nos detalhes',
+            slideId:     'slide-peliculas',
+            scanColor:   '#00d2ff',
+            scanRgb:     '0, 210, 255',
         },
     };
 
-    let currentService   = 'peliculas';
-    let isTransitioning  = false;
-
-    function updateHudChip(chipEl, icon, color, text) {
-        const iconEl = chipEl.querySelector('i');
-        const textEl = chipEl.querySelector('span');
-        if (iconEl) {
-            iconEl.className = `fa-solid ${icon}`;
-            iconEl.style.color = color;
-        }
-        if (textEl) textEl.textContent = text;
-    }
+    let currentService  = 'ppf';
+    let isTransitioning = false;
 
     function switchService(key) {
         if (key === currentService || isTransitioning) return;
@@ -165,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             if (nextSlide) {
                 nextSlide.classList.add('active');
-                // Make sure video in next slide plays
                 const vid = nextSlide.querySelector('video');
                 if (vid) {
                     vid.currentTime = 0;
@@ -180,24 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ledCanopy.style.filter = 'brightness(1.8) hue-rotate(30deg)';
             setTimeout(() => { ledCanopy.style.filter = 'brightness(1)'; }, 700);
         }
-
-        // --- HUD update ---
-        const hudChips = [
-            document.getElementById('hud-chip-1'),
-            document.getElementById('hud-chip-2'),
-            document.getElementById('hud-chip-3'),
-            document.getElementById('hud-chip-4'),
-        ];
-        hudChips.forEach((chip, i) => {
-            if (!chip) return;
-            chip.style.opacity = '0';
-            chip.style.transform = 'translateY(-8px)';
-            setTimeout(() => {
-                updateHudChip(chip, data.hudIcons[i], data.hudColors[i], data.metrics[i]);
-                chip.style.opacity = '1';
-                chip.style.transform = 'translateY(0)';
-            }, 200 + i * 80);
-        });
 
         // --- Hero text update ---
         if (heroEyebrow) {
@@ -235,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Auto-rotate services every 8 seconds
-    const serviceKeys = ['peliculas', 'ppf'];
+    const serviceKeys = ['ppf', 'peliculas'];
     let autoRotateIdx = 0;
     let autoRotateTimer = setInterval(() => {
         autoRotateIdx = (autoRotateIdx + 1) % serviceKeys.length;
@@ -278,31 +237,136 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => observer.observe(el));
 
     /* ═══════════════════════════════════
-       COUPON FORM → WHATSAPP
+       GALLERY CAROUSEL
        ═══════════════════════════════════ */
-    const couponForm  = document.getElementById('couponForm');
-    const couponInput = document.getElementById('couponInput');
+    const galleryCarousel = document.getElementById('galleryCarousel');
+    if (galleryCarousel) {
+        const track       = document.getElementById('carouselTrack');
+        const prevBtn     = document.getElementById('carouselPrev');
+        const nextBtn     = document.getElementById('carouselNext');
+        const dotsBox     = document.getElementById('carouselDots');
+        const slides      = track ? track.querySelectorAll('.carousel-slide') : [];
+        const totalSlides = slides.length;
+        let currentIndex  = 0;
 
-    couponForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const coupon = couponInput.value.trim().toUpperCase();
-
-        if (!coupon) {
-            // Shake animation for empty input
-            couponInput.style.animation = 'none';
-            couponInput.offsetHeight; // reflow
-            couponInput.parentElement.style.animation = 'shakeInput 0.4s ease';
-            setTimeout(() => { couponInput.parentElement.style.animation = ''; }, 400);
-            couponInput.placeholder = 'Por favor, insira um cupom válido';
-            couponInput.focus();
-            return;
+        function getVisibleCount() {
+            return window.innerWidth <= 900 ? 1 : 2;
         }
 
-        const msg = encodeURIComponent(
-            `Olá! Vim pelo site e gostaria de usar o cupom de desconto: *${coupon}* 🏷️`
-        );
-        window.open(`https://wa.me/5548988016270?text=${msg}`, '_blank');
-    });
+        function getMaxIndex() {
+            return Math.max(0, totalSlides - getVisibleCount());
+        }
+
+        function renderDots() {
+            if (!dotsBox) return;
+            dotsBox.innerHTML = '';
+            const maxIdx = getMaxIndex();
+            for (let i = 0; i <= maxIdx; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+                dot.setAttribute('aria-label', `Ir para slide ${i + 1}`);
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsBox.appendChild(dot);
+            }
+        }
+
+        function updateSlideVideos() {
+            const visibleCount = getVisibleCount();
+            slides.forEach((slide, idx) => {
+                const vid = slide.querySelector('video');
+                if (!vid) return;
+                const isVisible = idx >= currentIndex && idx < currentIndex + visibleCount;
+                if (isVisible) {
+                    vid.play().catch(() => {});
+                } else {
+                    vid.pause();
+                }
+            });
+        }
+
+        function goToSlide(index) {
+            const maxIdx = getMaxIndex();
+            currentIndex = Math.max(0, Math.min(index, maxIdx));
+
+            if (slides[0] && track) {
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                const gap = 24;
+                const offset = currentIndex * (slideWidth + gap);
+                track.style.transform = `translateX(-${offset}px)`;
+            }
+
+            if (dotsBox) {
+                const dots = dotsBox.querySelectorAll('.carousel-dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            updateSlideVideos();
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                const maxIdx = getMaxIndex();
+                goToSlide(currentIndex === 0 ? maxIdx : currentIndex - 1);
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const maxIdx = getMaxIndex();
+                goToSlide(currentIndex >= maxIdx ? 0 : currentIndex + 1);
+            });
+        }
+
+        // Navegação por setas do teclado (Esquerda / Direita)
+        window.addEventListener('keydown', (e) => {
+            const rect = galleryCarousel.getBoundingClientRect();
+            const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+            if (!isInView) return;
+
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const maxIdx = getMaxIndex();
+                goToSlide(currentIndex === 0 ? maxIdx : currentIndex - 1);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                const maxIdx = getMaxIndex();
+                goToSlide(currentIndex >= maxIdx ? 0 : currentIndex + 1);
+            }
+        });
+
+        // Suporte a swipe no celular
+        let touchStartX = 0;
+        let touchEndX   = 0;
+
+        if (track) {
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 45) {
+                    const maxIdx = getMaxIndex();
+                    if (diff > 0) {
+                        goToSlide(currentIndex >= maxIdx ? 0 : currentIndex + 1);
+                    } else {
+                        goToSlide(currentIndex === 0 ? maxIdx : currentIndex - 1);
+                    }
+                }
+            }, { passive: true });
+        }
+
+        window.addEventListener('resize', () => {
+            renderDots();
+            goToSlide(currentIndex);
+        });
+
+        renderDots();
+        goToSlide(0);
+    }
 
     /* ═══════════════════════════════════
        WHATSAPP FLOAT HIDE ON FOOTER
@@ -312,7 +376,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const footerObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // Adjust position when footer is visible
             if (entry.isIntersecting) {
                 wppFloat.style.bottom = (footer.offsetHeight + 16) + 'px';
             } else {
@@ -326,19 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ═══════════════════════════════════
        HERO SLIDE VIDEOS AUTOPLAY
        ═══════════════════════════════════ */
-    // Ensure all hero slide videos are muted and try to play
     document.querySelectorAll('.hero-service-slide video').forEach(v => {
-        v.muted = true;
-        v.play().catch(() => {
-            document.addEventListener('touchstart', () => v.play(), { once: true });
-            document.addEventListener('click', () => v.play(), { once: true });
-        });
-    });
-
-    /* ═══════════════════════════════════
-       GALLERY VIDEOS AUTOPLAY
-       ═══════════════════════════════════ */
-    document.querySelectorAll('.video-placeholder video').forEach(v => {
         v.muted = true;
         v.play().catch(() => {
             document.addEventListener('touchstart', () => v.play(), { once: true });
@@ -350,21 +401,22 @@ document.addEventListener('DOMContentLoaded', () => {
        HERO AMBIENT GRADIENT (dynamic)
        ═══════════════════════════════════ */
     const heroStyle = document.getElementById('home');
-    heroStyle.style.setProperty('--car-ambient', 'rgba(0, 210, 255, 0.10)');
+    if (heroStyle) {
+        heroStyle.style.setProperty('--car-ambient', 'rgba(106, 255, 46, 0.12)');
 
-    // Dynamically add ambient radial overlay
-    const ambientEl = document.createElement('div');
-    ambientEl.style.cssText = `
-        position: absolute;
-        bottom: 0; left: 50%; right: 0;
-        transform: translateX(0);
-        width: 100%; height: 50%;
-        background: radial-gradient(ellipse at 65% 100%, var(--car-ambient, transparent), transparent 70%);
-        z-index: 5;
-        pointer-events: none;
-        transition: background 0.8s ease;
-    `;
-    document.querySelector('.hero-section').appendChild(ambientEl);
+        const ambientEl = document.createElement('div');
+        ambientEl.style.cssText = `
+            position: absolute;
+            bottom: 0; left: 50%; right: 0;
+            transform: translateX(0);
+            width: 100%; height: 50%;
+            background: radial-gradient(ellipse at 65% 100%, var(--car-ambient, transparent), transparent 70%);
+            z-index: 5;
+            pointer-events: none;
+            transition: background 0.8s ease;
+        `;
+        heroStyle.appendChild(ambientEl);
+    }
 
     /* ═══════════════════════════════════
        CUSTOM CURSOR GREEN HIGHLIGHT LOGIC
@@ -391,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animateCursor();
 
         // Expand cursor glow over interactive elements
-        const hoverTargetSelector = 'a, button, input, .color-btn, .service-card, .video-card, .award-card, .review-card, .logo';
+        const hoverTargetSelector = 'a, button, input, .carousel-nav-btn, .carousel-dot, .service-card, .award-card, .review-card, .logo, .service-link, .lightbox-trigger, .lightbox-close';
         document.querySelectorAll(hoverTargetSelector).forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -408,19 +460,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-});
+    /* ═══════════════════════════════════
+       LIGHTBOX CONTROLLER
+       ═══════════════════════════════════ */
+    const lightboxModal    = document.getElementById('lightboxModal');
+    const lightboxBackdrop = document.getElementById('lightboxBackdrop');
+    const lightboxClose    = document.getElementById('lightboxClose');
+    const lightboxImg      = document.getElementById('lightboxImg');
+    const lightboxCaption  = document.getElementById('lightboxCaption');
 
-/* ═══════════════════════════════════
-   CSS ANIMATION — shake (injected)
-   ═══════════════════════════════════ */
-const styleSheet = document.createElement('style');
-styleSheet.textContent = `
-    @keyframes shakeInput {
-        0%, 100% { transform: translateX(0); }
-        20%       { transform: translateX(-8px); }
-        40%       { transform: translateX(8px); }
-        60%       { transform: translateX(-5px); }
-        80%       { transform: translateX(5px); }
+    function openLightbox(src, caption) {
+        if (!lightboxModal || !lightboxImg) return;
+        lightboxImg.src = src;
+        lightboxImg.alt = caption || 'Visualização em alta resolução';
+        if (lightboxCaption) {
+            lightboxCaption.textContent = caption || '';
+            lightboxCaption.style.display = caption ? 'inline-block' : 'none';
+        }
+        lightboxModal.classList.add('active');
+        lightboxModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
     }
-`;
-document.head.appendChild(styleSheet);
+
+    function closeLightbox() {
+        if (!lightboxModal) return;
+        lightboxModal.classList.remove('active');
+        lightboxModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lightboxImg) lightboxImg.src = '';
+    }
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightboxModal && lightboxModal.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+
+    document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const fullSrc = trigger.getAttribute('data-full') || trigger.querySelector('img')?.getAttribute('src');
+            const caption = trigger.getAttribute('data-caption') || trigger.querySelector('img')?.getAttribute('alt') || '';
+            if (fullSrc) openLightbox(fullSrc, caption);
+        });
+    });
+
+});

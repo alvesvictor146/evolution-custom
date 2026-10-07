@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evolution Custom SC | Estética Automotiva de Luxo — São José/SC</title>
-    <meta name="description" content="Evolution Custom SC — Especialistas em PPF, Envelopamento, Estética Automotiva, Películas, Martelinho de Ouro e mais. São José - SC. Agende já!">
+    <title>Evolution Custom SC | PPF, Películas, Envelopamento e Treinamentos — São José/SC</title>
+    <meta name="description" content="Evolution Custom SC — Especialistas em PPF, Películas Automotivas, Envelopamento, Estética Automotiva, Customização e Treinamentos em São José - SC. Agende já!">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Raleway:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -24,11 +24,7 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-                <div class="logo-text">
-                    <span class="logo-evolutio">EVOLUTI</span><span class="logo-on">ON</span>
-                </div>
-                <div class="logo-custom">Custom</div>
-                <div class="logo-sc">SC</div>
+                <img src="logo_header.png" alt="Evolution Custom SC" class="logo-img">
             </div>
 
             <button class="menu-toggle" id="menuToggle" aria-label="Menu">
@@ -63,8 +59,15 @@
             <!-- Laser scanner effect line -->
             <div class="laser-scanner" id="laserScanner"></div>
 
-            <!-- SERVIÇO 1: Películas Nano-Cerâmicas -->
-            <div class="hero-service-slide active" id="slide-peliculas">
+            <!-- SERVIÇO 1: Proteção PPF (Inicial) -->
+            <div class="hero-service-slide active" id="slide-ppf">
+                <video class="hero-slide-video active-media"
+                       src="Car_paint_protection_film_demons…_202609010958.mp4"
+                       autoplay muted loop playsinline preload="auto" id="vid-ppf-1"></video>
+            </div>
+
+            <!-- SERVIÇO 2: Películas Nano-Cerâmicas -->
+            <div class="hero-service-slide" id="slide-peliculas">
                 <img src="Automotive_window_film_display_2K_202609011911.jpeg"
                      alt="Película Nano-Cerâmica – Vista interna e externa do controle térmico"
                      class="hero-slide-img" draggable="false">
@@ -72,49 +75,22 @@
                        src="Automotive_window_film_commercial_1080p_202609011011.mp4"
                        autoplay muted loop playsinline preload="auto" id="vid-peliculas-1"></video>
             </div>
-
-            <!-- SERVIÇO 2: Proteção PPF -->
-            <div class="hero-service-slide" id="slide-ppf">
-                <video class="hero-slide-video active-media"
-                       src="Car_paint_protection_film_demons…_202609010958.mp4"
-                       autoplay muted loop playsinline preload="auto" id="vid-ppf-1"></video>
-            </div>
         </div>
 
         <!-- Hero overlay gradient -->
         <div class="hero-overlay"></div>
 
-        <!-- HUD Badges Flutuantes — fora do media-wrap para não ser cortado pelo overflow:hidden -->
-        <div class="hero-hud-panel" id="heroHudPanel">
-            <div class="hud-chip highlight" id="hud-chip-1">
-                <i class="fa-solid fa-fire-flame-curved"></i>
-                <span id="hud-metric-1">99% Rejeição IR</span>
-            </div>
-            <div class="hud-chip" id="hud-chip-2">
-                <i class="fa-solid fa-sun"></i>
-                <span id="hud-metric-2">99.9% Proteção UV</span>
-            </div>
-            <div class="hud-chip" id="hud-chip-3">
-                <i class="fa-solid fa-temperature-arrow-down"></i>
-                <span id="hud-metric-3">-15°C no Interior</span>
-            </div>
-            <div class="hud-chip badge-tech" id="hud-chip-4">
-                <i class="fa-solid fa-microchip"></i>
-                <span id="hud-metric-4">Nano-Cerâmica Carbon</span>
-            </div>
-        </div>
-
         <!-- Hero content (esquerda) -->
         <div class="hero-content" id="heroContent">
             <span class="hero-service-eyebrow reveal-text delay-1" id="heroEyebrow">
-                <i class="fa-solid fa-sun"></i> Películas Nano-Cerâmicas
+                <i class="fa-solid fa-shield-halved"></i> Proteção PPF
             </span>
             <h1 class="reveal-text delay-1" id="heroTitle">
-                Proteção Térmica &<br>
-                <span class="text-green" id="heroTitleAccent">Clareza HD</span><br>
-                Nano-Cerâmica.
+                Proteja seu patrimônio<br>
+                <span class="text-green" id="heroTitleAccent">contra pedras,</span><br>
+                riscos e sol.
             </h1>
-            <p class="reveal-text delay-2" id="heroSubtitle">99% Rejeição de Calor · 99.9% Bloqueio UV · Sem Escurecer Vidros</p>
+            <p class="reveal-text delay-2" id="heroSubtitle">Self Healing, hidrofóbico, brilho extremo.</p>
             <div class="hero-cta reveal-text delay-3">
                 <a href="#contact" class="btn-primary" id="heroCtaBtn">Agendar Serviço</a>
                 <a href="https://wa.me/5548988016270" class="btn-ghost" target="_blank">
@@ -125,19 +101,19 @@
 
         <!-- SERVICE SELECTOR BUTTONS -->
         <div class="hero-service-selector" id="heroServiceSelector">
-            <button class="svc-btn active" data-service="peliculas" id="svc-btn-peliculas">
-                <span class="svc-icon"><i class="fa-solid fa-sun"></i></span>
-                <span class="svc-info">
-                    <span class="svc-label">Películas Nano-Cerâmicas</span>
-                    <span class="svc-sublabel">Controle Térmico & UV</span>
-                </span>
-                <span class="svc-arrow"><i class="fa-solid fa-chevron-right"></i></span>
-            </button>
-            <button class="svc-btn" data-service="ppf" id="svc-btn-ppf">
+            <button class="svc-btn active" data-service="ppf" id="svc-btn-ppf">
                 <span class="svc-icon"><i class="fa-solid fa-shield-halved"></i></span>
                 <span class="svc-info">
                     <span class="svc-label">Proteção PPF</span>
                     <span class="svc-sublabel">Auto-Regenerativo & Anti-Impacto</span>
+                </span>
+                <span class="svc-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+            </button>
+            <button class="svc-btn" data-service="peliculas" id="svc-btn-peliculas">
+                <span class="svc-icon"><i class="fa-solid fa-sun"></i></span>
+                <span class="svc-info">
+                    <span class="svc-label">Películas Nano-Cerâmicas</span>
+                    <span class="svc-sublabel">Controle Térmico & UV</span>
                 </span>
                 <span class="svc-arrow"><i class="fa-solid fa-chevron-right"></i></span>
             </button>
@@ -153,99 +129,101 @@
     <section id="services" class="services-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">O que fazemos</span>
                 <h2 class="section-title">Nossos <span class="text-green">Serviços</span></h2>
-                <p class="section-sub">Excelência em cada detalhe. Do arranhão à proteção total.</p>
+                <p class="section-sub">Excelência em cada detalhe</p>
             </div>
 
             <div class="services-grid">
 
-                <!-- Martelinho -->
-                <div class="service-card scroll-reveal" id="srv-martelinho">
-                    <div class="service-icon-wrap">
-                        <i class="fa-solid fa-hammer"></i>
-                    </div>
-                    <h3>Martelinho de Ouro</h3>
-                    <p>Remoção de amassados e mossas sem necessidade de pintura, preservando a originalidade da lataria e o valor do seu veículo.</p>
-                    <div class="service-card-footer">
-                        <span class="service-tag">PDR</span>
-                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20informações%20sobre%20Martelinho%20de%20Ouro" class="service-link" target="_blank">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PPF -->
+                <!-- 1º PPF -->
                 <div class="service-card scroll-reveal" id="srv-ppf">
                     <div class="service-icon-wrap">
-                        <i class="fa-solid fa-shield-halved"></i>
+                        <img src="cazulinho.png" alt="Evolution Custom" class="service-icon-cazulinho">
                     </div>
                     <h3>PPF — Proteção de Pintura</h3>
-                    <p>Filme protetor de pintura (Paint Protection Film) de alto desempenho. Protege contra riscos, pedriscos, insetos e raios UV, com acabamento brilhante ou matte.</p>
+                    <p>Contamos com marcas de alta qualidade, máquina e software atualizados para corte computadorizado, proteção exclusiva também para para-brisa, e cores diversas.</p>
+                    <p>A aplicação é feita por profissionais qualificados e premiados internacionalmente, garantindo a máxima excelência.</p>
                     <div class="service-card-footer">
-                        <span class="service-tag">Premium</span>
-                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20informações%20sobre%20PPF" class="service-link" target="_blank">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
+                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Prote%C3%A7%C3%A3o%20PPF." class="service-link" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
                         </a>
                     </div>
                 </div>
 
-                <!-- Estética -->
-                <div class="service-card scroll-reveal" id="srv-estetica">
-                    <div class="service-icon-wrap">
-                        <i class="fa-solid fa-gem"></i>
-                    </div>
-                    <h3>Estética Automotiva</h3>
-                    <p>Higienização completa, polimento técnico, lavagem a vapor, hidratação de couro e limpeza de motor. Seu veículo de volta ao showroom.</p>
-                    <div class="service-card-footer">
-                        <span class="service-tag">Detailing</span>
-                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20informações%20sobre%20Estética%20Automotiva" class="service-link" target="_blank">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Películas -->
+                <!-- 2º Películas -->
                 <div class="service-card scroll-reveal" id="srv-peliculas">
                     <div class="service-icon-wrap">
-                        <i class="fa-solid fa-film"></i>
+                        <img src="cazulinho.png" alt="Evolution Custom" class="service-icon-cazulinho">
                     </div>
-                    <h3>Películas Automotivas</h3>
-                    <p>Películas de controle solar, privacidade e segurança. Redução de calor, proteção UV e mais conforto. Instalação precisa e garantia.</p>
+                    <h3>Películas</h3>
+                    <p>Garantimos qualidade com as melhores marcas e aplicação feita por profissionais qualificados com mais de 20 anos de experiência.</p>
+                    <p>Oferecemos todo cuidado e proteção para o veículo, bancos, painéis e parte elétrica são preservadas durante toda a aplicação.</p>
+                    <p>Contamos com máquina e software do corte atualizados, garantindo ainda mais proteção ao veículo.</p>
                     <div class="service-card-footer">
-                        <span class="service-tag">Solar Film</span>
-                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20informações%20sobre%20Películas" class="service-link" target="_blank">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
+                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Pel%C3%ADculas." class="service-link" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
                         </a>
                     </div>
                 </div>
 
-                <!-- Envelopamento -->
+                <!-- 3º Envelopamento -->
                 <div class="service-card scroll-reveal" id="srv-envelopamento">
                     <div class="service-icon-wrap">
-                        <i class="fa-solid fa-layer-group"></i>
+                        <img src="cazulinho.png" alt="Evolution Custom" class="service-icon-cazulinho">
                     </div>
                     <h3>Envelopamento</h3>
-                    <p>Transforme a cor e o estilo do seu veículo com vinil de alta qualidade. Acabamentos brilhante, matte, cetim, chrome e personalizado.</p>
+                    <p>Oferecemos troca de cor total do veículo ou apenas detalhes em peças como por exemplo o Chrome delete.</p>
+                    <p>Contamos com as melhores marcas e profissionais qualificados.</p>
                     <div class="service-card-footer">
-                        <span class="service-tag">Wrap</span>
-                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20informações%20sobre%20Envelopamento" class="service-link" target="_blank">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
+                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Envelopamento." class="service-link" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
                         </a>
                     </div>
                 </div>
 
-                <!-- Polimento -->
-                <div class="service-card scroll-reveal" id="srv-polimento">
+                <!-- 4º Estética automotiva -->
+                <div class="service-card scroll-reveal" id="srv-estetica">
                     <div class="service-icon-wrap">
-                        <i class="fa-solid fa-star"></i>
+                        <img src="cazulinho.png" alt="Evolution Custom" class="service-icon-cazulinho">
                     </div>
-                    <h3>Polimento & Vitrificação</h3>
-                    <p>Correção de pintura, remoção de swirls e hologramas. Vitrificação cerâmica para proteção durável e brilho espelhado incomparável.</p>
+                    <h3>Estética Automotiva</h3>
+                    <p>Oferecemos polimento técnico e comercial, vitrificação de pintura, plásticos, vidros e rodas.</p>
+                    <p>Contamos com os melhores produtos e profissionais qualificados para cuidar do seu veículo.</p>
                     <div class="service-card-footer">
-                        <span class="service-tag">Ceramic</span>
-                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20informações%20sobre%20Polimento" class="service-link" target="_blank">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
+                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Est%C3%A9tica%20Automotiva." class="service-link" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5º Customização -->
+                <div class="service-card scroll-reveal" id="srv-customizacao">
+                    <div class="service-icon-wrap">
+                        <img src="cazulinho.png" alt="Evolution Custom" class="service-icon-cazulinho">
+                    </div>
+                    <h3>Customização</h3>
+                    <p>Personalização exclusiva para elevar o visual do seu veículo.</p>
+                    <p>Pintura para rodas e pinças de freio, além de troca de cintos de segurança em diversas cores, acabamento impecável executado por profissionais especializados.</p>
+                    <p>Tudo seguindo os mais altos padrões de segurança e acabamento.</p>
+                    <div class="service-card-footer">
+                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Customiza%C3%A7%C3%A3o." class="service-link" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 6º Treinamentos -->
+                <div class="service-card scroll-reveal" id="srv-treinamentos">
+                    <div class="service-icon-wrap">
+                        <img src="cazulinho.png" alt="Evolution Custom" class="service-icon-cazulinho">
+                    </div>
+                    <h3>Treinamentos</h3>
+                    <p>Aprenda com quem é referência no setor. Treinamento prático e completo em películas e PPF, ministrado por especialistas premiados na América do Sul e com certificações internacionais.</p>
+                    <p>Ideal para quem quer iniciar na profissão ou se aperfeiçoar. O treinamento pode ser em grupo ou individual, direcionado para sua necessidade.</p>
+                    <p>Informe-se com nosso time sobre as próximas datas disponíveis.</p>
+                    <div class="service-card-footer">
+                        <a href="https://wa.me/5548988016270?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20as%20pr%C3%B3ximas%20datas%20dispon%C3%ADveis%20para%20os%20Treinamentos." class="service-link" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Consultar datas
                         </a>
                     </div>
                 </div>
@@ -254,124 +232,216 @@
         </div>
     </section>
 
-    <!-- ══════════ VÍDEOS ══════════ -->
+    <!-- ══════════ GALERIA (CARROSSEL) ══════════ -->
     <section id="videos" class="videos-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Em ação</span>
-                <h2 class="section-title">Veja Nossa <span class="text-green">Qualidade</span></h2>
-                <p class="section-sub">Assista aos processos que fazem a diferença no resultado final.</p>
+                <h2 class="section-title">Nosso Padrão de <span class="text-green">Excelência</span></h2>
             </div>
 
-            <div class="videos-grid">
+            <div class="carousel-wrapper scroll-reveal" id="galleryCarousel">
+                <button class="carousel-nav-btn prev" id="carouselPrev" aria-label="Mídia anterior">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
 
-                <!-- Vídeo 1: Proteção PPF -->
-                <div class="video-card scroll-reveal">
-                    <div class="video-placeholder" id="video-slot-1">
-                        <video id="video-ppf-demo" src="Paint_protection_film_video_demo…_202609011006.mp4" autoplay muted loop playsinline preload="auto"></video>
-                    </div>
-                    <div class="video-card-info">
-                        <h4>Demonstração PPF Auto-Regenerativo</h4>
-                        <p>Veja o processo de aplicação e o efeito self-healing real em ação</p>
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+
+                        <!-- Slide 1: Fachada e Estúdio -->
+                        <div class="carousel-slide" data-index="0">
+                            <div class="carousel-media-box lightbox-trigger" data-full="estrutura1.jpeg" data-caption="Fachada & Estúdio Evolution Custom — São José/SC">
+                                <img src="estrutura1.jpeg" alt="Fachada e Estúdio Evolution Custom com Porsche GT3 RS" loading="lazy">
+                                <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            </div>
+                            <div class="carousel-caption">
+                                <h4>Fachada & Estúdio Evolution Custom</h4>
+                                <p>Estrutura dedicada em São José/SC com baias técnicas climatizadas para receber superesportivos e veículos de luxo.</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Iluminação Hexagonal & Padrão Técnico -->
+                        <div class="carousel-slide" data-index="1">
+                            <div class="carousel-media-box lightbox-trigger" data-full="estrutura.jpeg" data-caption="Estúdio Evolution Custom com Porsche 911 Carrera e GT3 RS">
+                                <img src="estrutura.jpeg" alt="Estúdio Evolution Custom com Porsche 911 Carrera e GT3 RS" loading="lazy">
+                                <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            </div>
+                            <div class="carousel-caption">
+                                <h4>Iluminação Hexagonal de Alta Inspeção</h4>
+                                <p>Ambiente técnico projetado para inspeção milimétrica de verniz, eliminando qualquer imperfeição antes e após o PPF.</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: Visão Ampla do Estúdio -->
+                        <div class="carousel-slide" data-index="2">
+                            <div class="carousel-media-box lightbox-trigger" data-full="eestrutura2.jpeg" data-caption="Visão ampla do estúdio com Porsche GT3 RS, 911 e SUVs">
+                                <img src="eestrutura2.jpeg" alt="Visão ampla do estúdio com Porsche GT3 RS, 911 e SUVs" loading="lazy">
+                                <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            </div>
+                            <div class="carousel-caption">
+                                <h4>Espaço Amplo com Piso Modular</h4>
+                                <p>Piso técnico de alta drenagem e baias amplas para acomodar múltiplos veículos simultaneamente com total segurança.</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4: Aplicação Técnica de PPF -->
+                        <div class="carousel-slide" data-index="3">
+                            <div class="carousel-media-box lightbox-trigger" data-full="serviços.jpeg" data-caption="Aplicação técnica de película PPF por profissional premiado">
+                                <img src="serviços.jpeg" alt="Aplicação técnica de película PPF por profissional premiado" loading="lazy">
+                                <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            </div>
+                            <div class="carousel-caption">
+                                <h4>Aplicação Técnica de PPF por Especialista</h4>
+                                <p>Moldagem e assentamento cirúrgico da película com ferramentas de precisão e acabamento invisível nas bordas.</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5: Detalhamento Frontal & Cilindro Exclusivo -->
+                        <div class="carousel-slide" data-index="4">
+                            <div class="carousel-media-box lightbox-trigger" data-full="serviços2.jpeg" data-caption="Aplicação de PPF Frontal em Jeep Renegade com cilindro Evolution Custom">
+                                <img src="serviços2.jpeg" alt="Aplicação de PPF Frontal em Jeep Renegade com cilindro Evolution Custom" loading="lazy">
+                                <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            </div>
+                            <div class="carousel-caption">
+                                <h4>Proteção Frontal (Front Full)</h4>
+                                <p>Instalação de PPF com cilindro pressurizado exclusivo Evolution Custom, assegurando adesão uniforme e livre de contaminações.</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 6: Audi RS6 Avant -->
+                        <div class="carousel-slide" data-index="5">
+                            <div class="carousel-media-box lightbox-trigger" data-full="serviços1.jpeg" data-caption="Audi RS6 Avant finalizada sob iluminação de inspeção">
+                                <img src="serviços1.jpeg" alt="Audi RS6 Avant finalizada sob iluminação de inspeção" loading="lazy">
+                                <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            </div>
+                            <div class="carousel-caption">
+                                <h4>Audi RS6 Avant — Acabamento Showroom</h4>
+                                <p>Entrega impecável com proteção completa de pintura, realce óptico e profundidade de brilho incomparável.</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 7: BMW M2 & X5 -->
+                        <div class="carousel-slide" data-index="6">
+                            <div class="carousel-media-box lightbox-trigger" data-full="serviços (2).jpeg" data-caption="BMW M2 e BMW X5 com vitrificação cerâmica e proteção">
+                                <img src="serviços (2).jpeg" alt="BMW M2 e BMW X5 com vitrificação cerâmica e proteção" loading="lazy">
+                                <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            </div>
+                            <div class="carousel-caption">
+                                <h4>Vitrificação & Proteção Cerâmica</h4>
+                                <p>Alta repelência hidrofóbica, facilidade de lavagem e brilho espelhado com os melhores vitrificadores mundiais.</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 8: Credenciamento CarPro Immortal -->
+                        <div class="carousel-slide" data-index="7">
+                            <div class="carousel-media-box lightbox-trigger" data-full="estrutura (2).jpeg" data-caption="Honda Accord sob teto hexagonal e placas de credenciamento CarPro e FilmStar">
+                                <img src="estrutura (2).jpeg" alt="Honda Accord sob teto hexagonal e placas de credenciamento CarPro e FilmStar" loading="lazy">
+                                <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            </div>
+                            <div class="carousel-caption">
+                                <h4>Estúdio Credenciado CARPRO & FilmStar</h4>
+                                <p>Padrão técnico aprovado pelos maiores fabricantes de películas térmicas e filmes de proteção regenerativa do mundo.</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- Vídeo 2: Película Térmica -->
-                <div class="video-card scroll-reveal">
-                    <div class="video-placeholder" id="video-slot-2">
-                        <video id="video-pelicula-demo" src="Window_film_thermal_comfort_demo…_202609011912.mp4" autoplay muted loop playsinline preload="auto"></video>
-                    </div>
-                    <div class="video-card-info">
-                        <h4>Película Nano-Cerâmica — Conforto Térmico</h4>
-                        <p>Do início ao fim: bloqueio UV e controle de temperatura comprovado</p>
-                    </div>
-                </div>
-
-                <!-- Vídeo 3: Comercial Institucional (featured) -->
-                <div class="video-card video-card--featured scroll-reveal">
-                    <div class="video-placeholder" id="video-slot-3">
-                        <video id="video-comercial" src="Storyboard_comercial_de_película…_1080p_202609011035.mp4" autoplay muted loop playsinline preload="auto"></video>
-                    </div>
-                    <div class="video-card-info">
-                        <h4>Evolution Custom SC — Nosso Comercial</h4>
-                        <p>Conheça a essência da Evolution Custom SC: excelência, tecnologia e paixão por carros</p>
-                    </div>
-                </div>
-
+                <button class="carousel-nav-btn next" id="carouselNext" aria-label="Próxima mídia">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
 
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
     </section>
 
-    <!-- ══════════ PREMIAÇÕES ══════════ -->
+    <!-- ══════════ CERTIFICADOS E PRÊMIOS ══════════ -->
     <section id="awards" class="awards-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Reconhecimento</span>
-                <h2 class="section-title">Nossos <span class="text-green">Prêmios</span></h2>
-                <p class="section-sub">A excelência dos nossos profissionais reconhecida pelo mercado.</p>
+                <h2 class="section-title">Certificados & <span class="text-green">Troféus Conquistados</span></h2>
+                <p class="section-sub">Reconhecimento comprovado em campeonatos nacionais e certificações oficiais das maiores marcas.</p>
             </div>
 
             <div class="awards-grid">
 
-                <div class="award-card scroll-reveal">
-                    <div class="award-icon">
-                        <i class="fa-solid fa-trophy"></i>
-                    </div>
-                    <div class="award-year">2024</div>
-                    <h4>Melhor PPF Installer</h4>
-                    <p>Reconhecimento regional de melhor profissional em instalação de PPF do Sul do Brasil</p>
-                    <div class="award-badge">Sul do Brasil</div>
-                </div>
-
+                <!-- 1. Troféu 2º Lugar PPF -->
                 <div class="award-card award-card--featured scroll-reveal">
-                    <div class="award-icon">
-                        <i class="fa-solid fa-medal"></i>
+                    <div class="award-img-wrap lightbox-trigger" data-full="premios.jpeg" data-caption="Vice-Campeão Brasileiro Categoria PPF — CAMBAWF 2024 (Salomão Caetano)">
+                        <img src="premios.jpeg" alt="Vice-Campeão Brasileiro Categoria PPF — CAMBAWF 2024" loading="lazy">
+                        <span class="award-img-badge"><i class="fa-solid fa-trophy"></i> 2º Lugar Brasil</span>
+                        <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
                     </div>
-                    <div class="award-year">2024</div>
-                    <h4>Top Wrap Installer</h4>
-                    <p>Certificação de excelência em envelopamento por fabricante líder de vinil</p>
-                    <div class="award-badge">Certificado Nacional</div>
+                    <div class="award-year">CAMBAWF 2024 • NACIONAL</div>
+                    <h4>Vice-Campeão Brasileiro de PPF</h4>
+                    <p>Salomão Caetano conquistou o 2º lugar na Categoria PPF no campeonato brasileiro oficial (CAMBAWF 2024), comprovando a precisão cirúrgica da Evolution Custom.</p>
+                    <div class="award-badge">Troféu Nacional</div>
                 </div>
 
-                <div class="award-card scroll-reveal">
-                    <div class="award-icon">
-                        <i class="fa-solid fa-star"></i>
+                <!-- 2. Pódio Oficial -->
+                <div class="award-card award-card--featured scroll-reveal">
+                    <div class="award-img-wrap lightbox-trigger" data-full="premios (2).jpeg" data-caption="Pódio Oficial Categoria PPF — CAMBAWF 2024 (1º Guilherme Venerando, 2º Salomão Caetano, 3º Crestiane Kaiser)">
+                        <img src="premios (2).jpeg" alt="Pódio Oficial Categoria PPF — CAMBAWF 2024" loading="lazy">
+                        <span class="award-img-badge"><i class="fa-solid fa-medal"></i> Pódio Oficial</span>
+                        <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
                     </div>
-                    <div class="award-year">2023</div>
-                    <h4>Detailer do Ano — SC</h4>
-                    <p>Prêmio de profissional detailer do ano no estado de Santa Catarina</p>
-                    <div class="award-badge">Santa Catarina</div>
+                    <div class="award-year">CAMBAWF 2024 • PÓDIO</div>
+                    <h4>Entre os Melhores do País</h4>
+                    <p>Reconhecimento no pódio nacional entre os aplicadores mais técnicos do Brasil, comprovando o domínio em corte, moldagem e aplicação de películas de proteção.</p>
+                    <div class="award-badge">Pódio Nacional</div>
                 </div>
 
+                <!-- 3. Cerimônia de Premiação -->
                 <div class="award-card scroll-reveal">
-                    <div class="award-icon">
-                        <i class="fa-solid fa-certificate"></i>
+                    <div class="award-img-wrap lightbox-trigger" data-full="premios (4).jpeg" data-caption="Cerimônia Oficial de Premiação no Palco do CAMBAWF 2024">
+                        <img src="premios (4).jpeg" alt="Cerimônia Oficial de Premiação CAMBAWF 2024" loading="lazy">
+                        <span class="award-img-badge"><i class="fa-solid fa-star"></i> Cerimônia</span>
+                        <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
                     </div>
-                    <div class="award-year">2023</div>
-                    <h4>PDR Championship</h4>
-                    <p>Classificação no campeonato nacional de Martelinho de Ouro (Paintless Dent Repair)</p>
-                    <div class="award-badge">Nacional</div>
+                    <div class="award-year">CAMBAWF 2024 • PALCO</div>
+                    <h4>Premiação & Destaque no Setor</h4>
+                    <p>Consagração no palco oficial do evento perante grandes referências, fabricantes globais e especialistas do segmento de detalhamento automotivo.</p>
+                    <div class="award-badge">Reconhecimento</div>
                 </div>
 
+                <!-- 4. Competição ao Vivo -->
                 <div class="award-card scroll-reveal">
-                    <div class="award-icon">
-                        <i class="fa-solid fa-gem"></i>
+                    <div class="award-img-wrap lightbox-trigger" data-full="premios (3).jpeg" data-caption="Salomão Caetano competindo na arena ao vivo sob avaliação dos juízes">
+                        <img src="premios (3).jpeg" alt="Competição ao Vivo — Avaliação Técnica" loading="lazy">
+                        <span class="award-img-badge"><i class="fa-solid fa-crosshairs"></i> Prova Prática</span>
+                        <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
                     </div>
-                    <div class="award-year">2022</div>
-                    <h4>Parceiro Certificado 3M</h4>
-                    <p>Autorizado e certificado pela 3M para instalação de películas e PPF</p>
-                    <div class="award-badge">Certificação 3M</div>
+                    <div class="award-year">CAMBAWF 2024 • ARENA</div>
+                    <h4>Alta Performance sob Julgamento Técnico</h4>
+                    <p>Aplicação executada em tempo real sob rigoroso critério de avaliação de juízes renomados, avaliando acabamento em bordas e alinhamento milimétrico.</p>
+                    <div class="award-badge">Precisão Técnica</div>
                 </div>
 
+                <!-- 5. Estrutura e Equipamentos -->
                 <div class="award-card scroll-reveal">
-                    <div class="award-icon">
-                        <i class="fa-solid fa-shield-halved"></i>
+                    <div class="award-img-wrap lightbox-trigger" data-full="premios (5).jpeg" data-caption="Salomão Caetano na arena com uniforme e equipamentos homologados">
+                        <img src="premios (5).jpeg" alt="Salomão Caetano na Arena de Competição" loading="lazy">
+                        <span class="award-img-badge"><i class="fa-solid fa-certificate"></i> Metodologia</span>
+                        <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
                     </div>
-                    <div class="award-year">2022</div>
-                    <h4>Top Installer XPEL</h4>
-                    <p>Reconhecimento como instalador de elite da marca XPEL no Brasil</p>
-                    <div class="award-badge">XPEL Elite</div>
+                    <div class="award-year">PADRÃO PROFISSIONAL</div>
+                    <h4>Estrutura e Equipamentos de Ponta</h4>
+                    <p>A Evolution Custom utiliza metodologia, indumentária e ferramentas de nível internacional, elevando o padrão técnico das oficinas no Sul do país.</p>
+                    <div class="award-badge">Padrão Internacional</div>
+                </div>
+
+                <!-- 6. Credenciamento CarPro & FilmStar -->
+                <div class="award-card scroll-reveal">
+                    <div class="award-img-wrap lightbox-trigger" data-full="estrutura (2).jpeg" data-caption="Centro Credenciado Oficial CARPRO Immortal PPF e FilmStar Window Film">
+                        <img src="estrutura (2).jpeg" alt="Centro Credenciado CarPro Immortal PPF e FilmStar" loading="lazy">
+                        <span class="award-img-badge"><i class="fa-solid fa-shield-halved"></i> Credenciado</span>
+                        <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                    </div>
+                    <div class="award-year">CERTIFICAÇÃO OFICIAL</div>
+                    <h4>Credenciado CARPRO & FilmStar</h4>
+                    <p>Estúdio homologado com certificação CARPRO Immortal Instant Self-Healing PPF e películas térmicas FilmStar, garantindo máxima durabilidade e garantia comprovada.</p>
+                    <div class="award-badge">Credenciado Oficial</div>
                 </div>
 
             </div>
@@ -423,12 +493,12 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p>"Martelinho de ouro no Audi Q7. Sem pintura, sem perder a originalidade. Resultado perfeito, ninguém percebeu que tinha batido. Profissionalismo de outro nível!"</p>
+                    <p>"Fiz a customização de pinças e cintos esportivos no meu carro. Sem detalhes, acabamento de fábrica impecável. Profissionalismo e cuidado em outro patamar!"</p>
                     <div class="reviewer">
                         <div class="reviewer-avatar">LS</div>
                         <div>
                             <strong>Lucas S.</strong>
-                            <span>Audi Q7 — Martelinho de Ouro</span>
+                            <span>Audi RS6 — Customização Esportiva</span>
                         </div>
                     </div>
                 </div>
@@ -468,12 +538,12 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p>"Polimento e vitrificação cerâmica. O carro ficou espelhado, parecia zero km! O pessoal da Evolution tem um carinho enorme pelo que faz. Diferenciado mesmo!"</p>
+                    <p>"Polimento técnico e vitrificação cerâmica. O carro ficou espelhado, parecia zero km! O pessoal da Evolution tem um carinho enorme pelo que faz. Diferenciado mesmo!"</p>
                     <div class="reviewer">
                         <div class="reviewer-avatar">JB</div>
                         <div>
                             <strong>Julia B.</strong>
-                            <span>Ferrari — Polimento + Cerâmica</span>
+                            <span>Ferrari — Vitrificação Cerâmica</span>
                         </div>
                     </div>
                 </div>
@@ -485,34 +555,6 @@
                 <i class="fa-brands fa-google"></i>
                 <span>+120 avaliações 5 estrelas no Google</span>
                 <a href="https://g.co/kgs/example" class="btn-ghost-sm" target="_blank">Ver todas</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════ CUPOM DE DESCONTO ══════════ -->
-    <section class="coupon-section">
-        <div class="container">
-            <div class="coupon-card scroll-reveal">
-                <div class="coupon-left">
-                    <div class="coupon-icon"><i class="fa-solid fa-ticket"></i></div>
-                    <div>
-                        <h3>Cupom de Desconto Exclusivo</h3>
-                        <p>Informe seu cupom e receba uma oferta especial diretamente no WhatsApp!</p>
-                    </div>
-                </div>
-                <div class="coupon-right">
-                    <form class="coupon-form" id="couponForm">
-                        <div class="coupon-input-wrap">
-                            <input type="text" id="couponInput" placeholder="Digite seu cupom (ex: EVOLUTION10)"
-                                   autocomplete="off" maxlength="20">
-                            <button type="submit" class="coupon-btn">
-                                <i class="fa-brands fa-whatsapp"></i>
-                                Resgatar
-                            </button>
-                        </div>
-                        <p class="coupon-hint">Você será redirecionado ao nosso WhatsApp com o cupom aplicado.</p>
-                    </form>
-                </div>
             </div>
         </div>
     </section>
@@ -547,8 +589,9 @@
                         <div>
                             <strong>Horário de Atendimento</strong>
                             <table class="hours-table">
-                                <tr><td>Segunda – Sexta</td><td>08:00 – 18:00</td></tr>
-                                <tr><td>Sábado</td><td>08:00 – 14:00</td></tr>
+                                <tr><td>Segunda a quinta</td><td>08:00 – 18:00</td></tr>
+                                <tr><td>Sexta</td><td>08:00 – 17:00</td></tr>
+                                <tr><td>Sábado</td><td>09:00 – 13:00</td></tr>
                                 <tr class="closed"><td>Domingo</td><td>Fechado</td></tr>
                             </table>
                         </div>
@@ -559,14 +602,6 @@
                         <a href="https://instagram.com/evolutioncustomsc" target="_blank" class="social-btn instagram" aria-label="Instagram">
                             <i class="fa-brands fa-instagram"></i>
                             <span>Instagram</span>
-                        </a>
-                        <a href="https://facebook.com/evolutioncustomsc" target="_blank" class="social-btn facebook" aria-label="Facebook">
-                            <i class="fa-brands fa-facebook-f"></i>
-                            <span>Facebook</span>
-                        </a>
-                        <a href="https://tiktok.com/@evolutioncustomsc" target="_blank" class="social-btn tiktok" aria-label="TikTok">
-                            <i class="fa-brands fa-tiktok"></i>
-                            <span>TikTok</span>
                         </a>
                         <a href="https://wa.me/5548988016270" target="_blank" class="social-btn whatsapp-btn" aria-label="WhatsApp">
                             <i class="fa-brands fa-whatsapp"></i>
@@ -596,25 +631,34 @@
     <footer>
         <div class="container footer-inner">
             <div class="footer-logo">
-                <div class="logo-text">
-                    <span class="logo-evolutio">EVOLUTI</span><span class="logo-on">ON</span>
-                </div>
-                <div class="logo-custom">Custom</div>
-                <div class="logo-sc">SC</div>
+                <img src="logo_header.png" alt="Evolution Custom SC" class="logo-img footer-logo-img">
             </div>
-            <p class="footer-tagline">Estética Automotiva de Luxo — São José, SC</p>
             <div class="footer-social">
                 <a href="https://instagram.com/evolutioncustomsc" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://facebook.com/evolutioncustomsc" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://tiktok.com/@evolutioncustomsc" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                 <a href="https://wa.me/5548988016270" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
             <p class="footer-copy">© 2026 Evolution Custom SC. Todos os direitos reservados.</p>
         </div>
+    </footer>
+
+    <!-- ══════════ LIGHTBOX MODAL ══════════ -->
+    <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-label="Visualizador de imagem">
+        <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+        <div class="lightbox-dialog">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Fechar visualizador">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="lightbox-media-container">
+                <img src="" alt="" id="lightboxImg" class="lightbox-image">
+            </div>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
     <!-- ══════════ CUSTOM CURSOR ══════════ -->
     <div class="custom-cursor-dot" id="cursorDot"></div>
     <div class="custom-cursor-glow" id="cursorGlow"></div>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>
