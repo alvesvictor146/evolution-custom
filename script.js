@@ -250,7 +250,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentIndex  = 0;
 
         function getVisibleCount() {
-            return window.innerWidth <= 900 ? 1 : 2;
+            if (window.innerWidth <= 768) return 1;
+            if (window.innerWidth <= 1100) return 2;
+            return 3;
         }
 
         function getMaxIndex() {

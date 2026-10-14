@@ -60,7 +60,9 @@ button { cursor:pointer; font-family:var(--font); }
     width: auto;
     object-fit: contain;
     transition: var(--transition);
-    filter: drop-shadow(0 2px 10px rgba(0,0,0,0.6));
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
 }
 
 .logo:hover .logo-img {
@@ -1958,4 +1960,164 @@ footer {
         border-color: var(--green, #6aff2e);
         box-shadow: 0 0 35px rgba(106, 255, 46, 0.6);
     }
+}
+
+
+/* ══ NOVO LAYOUT DO CARROSSEL & CURIOSIDADES (FULL WIDTH 3 CARDS) ══ */
+.videos-section {
+    position: relative;
+    overflow-x: clip;
+}
+
+.videos-section .carousel-wrapper {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 0 54px;
+    box-sizing: border-box;
+    margin-top: 32px;
+}
+
+.carousel-slide {
+    flex: 0 0 calc((100% - 48px) / 3);
+    min-width: 0;
+    background: var(--black-card);
+    border: 1px solid var(--black-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-caption {
+    padding: 20px 22px;
+    background: var(--black-card);
+    border-top: 1px solid var(--black-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    flex: 1;
+}
+
+.story-snippet {
+    font-size: 0.88rem;
+    color: #c4c4c4;
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-read-story {
+    background: transparent;
+    border: none;
+    color: var(--green);
+    font-size: 0.84rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    transition: var(--transition);
+    width: fit-content;
+    font-family: inherit;
+    letter-spacing: 0.3px;
+}
+
+.btn-read-story:hover {
+    color: var(--white);
+    transform: translateX(4px);
+}
+
+.btn-read-story i {
+    font-size: 0.78rem;
+    transition: transform 0.2s ease;
+}
+
+.btn-read-story:hover i {
+    transform: translateX(3px);
+}
+
+.carousel-nav-btn.prev {
+    left: 12px;
+}
+
+.carousel-nav-btn.next {
+    right: 12px;
+}
+
+/* Lightbox multiline story caption */
+.lightbox-caption {
+    margin-top: 16px;
+    color: #e2e8f0;
+    font-size: 0.94rem;
+    font-weight: 400;
+    line-height: 1.65;
+    text-align: left;
+    background: rgba(14, 14, 14, 0.95);
+    backdrop-filter: blur(14px);
+    padding: 18px 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(106, 255, 46, 0.25);
+    max-width: 820px;
+    max-height: 35vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.85);
+}
+
+/* Verified Google review badge */
+.review-verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.76rem;
+    color: var(--gray);
+    margin-top: 2px;
+}
+
+.review-verified i {
+    color: var(--green);
+    font-size: 0.82rem;
+}
+
+@media (max-width: 1100px) {
+    .carousel-slide {
+        flex: 0 0 calc((100% - 24px) / 2);
+    }
+}
+
+@media (max-width: 768px) {
+    .videos-section .carousel-wrapper {
+        padding: 0 24px;
+    }
+    .carousel-slide {
+        flex: 0 0 100%;
+    }
+    .carousel-nav-btn.prev {
+        left: 4px;
+    }
+    .carousel-nav-btn.next {
+        right: 4px;
+    }
+}
+
+/* Ajuste de proporção para lightbox com texto de história */
+.lightbox-dialog {
+    max-height: 94vh;
+    justify-content: center;
+}
+.lightbox-media-container {
+    max-height: 54vh;
+}
+.lightbox-image {
+    max-height: 54vh;
 }
