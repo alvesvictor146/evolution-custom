@@ -56,18 +56,18 @@ button { cursor:pointer; font-family:var(--font); }
 }
 
 .logo-img {
-    height: 52px;
+    height: 78px;
     width: auto;
     object-fit: contain;
     transition: var(--transition);
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
+    filter: drop-shadow(0 4px 14px rgba(0,0,0,0.95)) drop-shadow(0 0 2px rgba(255,255,255,0.4));
 }
 
 .logo:hover .logo-img {
-    transform: scale(1.04);
-    filter: drop-shadow(0 0 16px rgba(106, 255, 46, 0.4));
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(106, 255, 46, 0.6)) drop-shadow(0 0 2px rgba(255,255,255,0.6));
 }
 
 /* ════════════════════════════════════════
@@ -78,18 +78,24 @@ button { cursor:pointer; font-family:var(--font); }
     top: 0; left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 20px 0;
-    background: transparent;
+    padding: 10px 0;
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: var(--transition);
 }
 
 #navbar.scrolled {
-    background: rgba(10,10,10,0.96);
+    background: rgba(10,10,10,0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    padding: 14px 0;
+    padding: 8px 0;
     border-bottom: 1px solid var(--black-border);
-    box-shadow: 0 4px 40px rgba(0,0,0,0.8);
+    box-shadow: 0 4px 40px rgba(0,0,0,0.85);
+}
+
+#navbar.scrolled .logo-img {
+    height: 64px;
 }
 
 .nav-container {
