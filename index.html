@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Raleway:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -33,6 +33,7 @@
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
                 <li><a href="#services">Serviços</a></li>
                 <li><a href="#videos">Galeria</a></li>
                 <li><a href="#awards">Prêmios</a></li>
@@ -119,6 +120,82 @@
             <div class="scroll-dot"></div>
         </div>
     </header>
+ 
+    <!-- ══════════ SOBRE NÓS & ESTRUTURA ══════════ -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nossa Essência</span>
+                <h2 class="section-title">Sobre a <span class="text-green">Evolution Custom SC</span></h2>
+                <p class="section-sub">Mais de 20 anos de experiência, tecnologia de precisão e padrão de excelência comprovado.</p>
+            </div>
+
+            <div class="about-grid">
+                <!-- Texto e história -->
+                <div class="about-text-content scroll-reveal">
+                    <p class="about-lead">A <strong>Evolution Custom SC</strong> nasceu com um propósito inegociável: elevar o padrão da estética automotiva no Brasil, combinando conhecimento cirúrgico, atendimento transparente e as tecnologias mais avançadas do mundo.</p>
+                    <p class="about-p">Comandada por <strong>Salomão Caetano</strong> — especialista premiado nacionalmente e <em>Vice-Campeão Brasileiro de PPF no CAMBAWF 2024</em> —, nossa equipe atende desde veículos de uso diário até os superesportivos mais raros e exclusivos do continente.</p>
+                    <p class="about-p">Trabalhamos exclusivamente com as marcas globais líderes de mercado (como CARPRO e FilmStar), maquinário próprio com corte computadorizado e uma metodologia de instalação de padrão internacional.</p>
+
+                    <div class="about-highlights-grid">
+                        <div class="about-highlight-card">
+                            <div class="about-highlight-icon"><i class="fa-solid fa-trophy"></i></div>
+                            <div class="about-highlight-info">
+                                <strong>Profissionais Premiados</strong>
+                                <span>Vice-campeão brasileiro de PPF e certificações oficiais.</span>
+                            </div>
+                        </div>
+                        <div class="about-highlight-card">
+                            <div class="about-highlight-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                            <div class="about-highlight-info">
+                                <strong>Corte Computadorizado</strong>
+                                <span>Máquinas e software de ponta: zero lâminas na pintura do seu carro.</span>
+                            </div>
+                        </div>
+                        <div class="about-highlight-card">
+                            <div class="about-highlight-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="about-highlight-info">
+                                <strong>Centro Credenciado</strong>
+                                <span>Homologado oficial CARPRO Immortal PPF e películas FilmStar.</span>
+                            </div>
+                        </div>
+                        <div class="about-highlight-card">
+                            <div class="about-highlight-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                            <div class="about-highlight-info">
+                                <strong>Estrutura VIP</strong>
+                                <span>Elevador pantográfico, colmeia LED e sala de espera climatizada com café.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mídias da loja e fachada -->
+                <div class="about-media-wrapper scroll-reveal">
+                    <div class="about-main-card lightbox-trigger" data-full="fachada.jpeg" data-caption="Fachada da Evolution Custom SC — Sede própria no Kobrasol, São José/SC">
+                        <img src="fachada.jpeg" alt="Fachada Evolution Custom SC no Kobrasol, São José/SC" loading="lazy">
+                        <div class="about-badge-overlay">
+                            <div class="about-badge-text">
+                                <strong>Sede Oficial Evolution Custom</strong>
+                                <span>Kobrasol — São José/SC</span>
+                            </div>
+                            <span class="media-zoom-hint" style="opacity: 1; transform: scale(1);"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="about-thumbs-grid">
+                        <div class="about-thumb-card lightbox-trigger" data-full="eestrutura2.jpeg" data-caption="Área de Aplicação Técnica e Iluminação Canopy LED — Evolution Custom">
+                            <img src="eestrutura2.jpeg" alt="Ambiente de aplicação com iluminação em colmeia de LED" loading="lazy">
+                            <span class="about-thumb-label"><i class="fa-solid fa-lightbulb"></i> Iluminação LED Canopy</span>
+                        </div>
+                        <div class="about-thumb-card lightbox-trigger" data-full="estrutura.jpeg" data-caption="Laboratório Técnico de Corte Computadorizado e Instalação de Películas">
+                            <img src="estrutura.jpeg" alt="Laboratório técnico de corte e aplicação" loading="lazy">
+                            <span class="about-thumb-label"><i class="fa-solid fa-gear"></i> Laboratório Técnico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ══════════ CATEGORIAS ══════════ -->
     <section id="services" class="services-section">
@@ -244,57 +321,258 @@
             <div class="carousel-container">
                 <div class="carousel-track" id="carouselTrack">
 
-                    <!-- Projeto 1: Porsche 911 GT3 RS -->
+                    <!-- Projeto 0: Porsche 911 GT3 RS -->
                     <div class="carousel-slide" data-index="0">
                         <div class="carousel-media-box lightbox-trigger" data-full="estrutura1.jpeg" data-caption="Um dos raríssimos Porsche 911 GT3 RS do Brasil, com apenas 2 unidades no país com essa especificação, viajou direto de São Paulo até a nossa loja por um motivo muito especial. O superesportivo já contava com uma proteção de PPF aplicada em 2016 (feita por outra empresa) mas, sabendo do nível de exigência e da complexidade que esse modelo exige, o proprietário, que já é nosso cliente, confiou à nossa equipe a missão de renovar completamente o visual e a proteção da máquina. Para devolver o brilho impecável e garantir a máxima preservação da pintura, realizamos um trabalho completo de Full PPF de altíssima precisão combinado com um Full Detail minucioso. O resultado? Uma verdadeira obra de arte sobre rodas, protegida e pronta para rodar como nova!">
                             <img src="estrutura1.jpeg" alt="Porsche 911 GT3 RS — Renovação Full PPF e Detail" loading="lazy">
                             <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
                         </div>
                         <div class="carousel-caption">
-                            <p class="story-snippet">Um dos raríssimos Porsche 911 GT3 RS do Brasil, com apenas 2 unidades no país com essa especificação, viajou direto de São Paulo até a nossa loja por um motivo muito especial. O superesportivo já contava com uma proteção de PPF aplicada em 2016 (feita por outra empresa) mas, sabendo do nível de exigência e da complexidade que esse modelo exige, o proprietário, que já é nosso cliente, confiou à nossa equipe a missão de renovar completamente o visual e a proteção da máquina.</p>
+                            <h4 class="carousel-slide-title">Porsche 911 GT3 RS</h4>
+                            <p class="story-snippet">Um dos raríssimos Porsche 911 GT3 RS do Brasil, com apenas 2 unidades no país com essa especificação, viajou direto de São Paulo até a nossa loja por um motivo muito especial. O superesportivo já contava com uma proteção de PPF aplicada em 2016 mas o cliente confiou à nossa equipe a renovação completa com Full PPF de altíssima precisão.</p>
                             <button type="button" class="btn-read-story lightbox-trigger" data-full="estrutura1.jpeg" data-caption="Um dos raríssimos Porsche 911 GT3 RS do Brasil, com apenas 2 unidades no país com essa especificação, viajou direto de São Paulo até a nossa loja por um motivo muito especial. O superesportivo já contava com uma proteção de PPF aplicada em 2016 (feita por outra empresa) mas, sabendo do nível de exigência e da complexidade que esse modelo exige, o proprietário, que já é nosso cliente, confiou à nossa equipe a missão de renovar completamente o visual e a proteção da máquina. Para devolver o brilho impecável e garantir a máxima preservação da pintura, realizamos um trabalho completo de Full PPF de altíssima precisão combinado com um Full Detail minucioso. O resultado? Uma verdadeira obra de arte sobre rodas, protegida e pronta para rodar como nova!">
                                 Ler história completa <i class="fa-solid fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Projeto 2: Estrutura da Loja (HB20 e Porsche) -->
+                    <!-- Projeto 1: RAM Rampage R/T (Uruguai) -->
                     <div class="carousel-slide" data-index="1">
-                        <div class="carousel-media-box lightbox-trigger" data-full="eestrutura2.jpeg" data-caption="Nossa estrutura foi projetada em cada detalhe para entregar o mesmo padrão de excelência, não importa o veículo! Nesta foto, dá para ver exatamente na prática como a nossa loja funciona: aqui, um HB20 do dia a dia e um raríssimo Porsche recebem o mesmo nível de cuidado e o resultado perfeito que seu carro merece!">
-                            <img src="eestrutura2.jpeg" alt="Estrutura Evolution Custom — Padrão de excelência para todos os veículos" loading="lazy">
+                        <div class="carousel-media-box lightbox-trigger" data-full="ram_rampage_rt.jpeg" data-caption="Não existem fronteiras para quem busca excelência e proteção máxima! Esta RAM Rampage ostenta o título de veículo que percorreu a maior distância para chegar ao nosso estúdio: o cliente saiu diretamente da cidade de Florida, no Uruguai, rodando centenas de quilômetros até nossa loja após receber uma indicação dos nossos trabalhos. Para retribuir essa confiança e deixar a pick-up pronta para enfrentar qualquer estrada com segurança e estilo, realizamos um projeto completo: Full PPF para blindar 100% da pintura contra pedriscos e riscos de viagem; Película de Cerâmica em todos os vidros para máximo conforto térmico; e Full Detalhamento Automotivo com pintura personalizada das rodas e proteção técnica de chassi. Um serviço internacional de ponta!">
+                            <img src="ram_rampage_rt.jpeg" alt="RAM Rampage R/T — Projeto Internacional direto do Uruguai" loading="lazy">
                             <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
                         </div>
                         <div class="carousel-caption">
-                            <p class="story-snippet">Nossa estrutura foi projetada em cada detalhe para entregar o mesmo padrão de excelência, não importa o veículo! Nesta foto, dá para ver exatamente na prática como a nossa loja funciona: aqui, um HB20 do dia a dia e um raríssimo Porsche recebem o mesmo nível de cuidado e o resultado perfeito que seu carro merece!</p>
-                            <button type="button" class="btn-read-story lightbox-trigger" data-full="eestrutura2.jpeg" data-caption="Nossa estrutura foi projetada em cada detalhe para entregar o mesmo padrão de excelência, não importa o veículo! Nesta foto, dá para ver exatamente na prática como a nossa loja funciona: aqui, um HB20 do dia a dia e um raríssimo Porsche recebem o mesmo nível de cuidado e o resultado perfeito que seu carro merece!">
+                            <h4 class="carousel-slide-title">RAM Rampage R/T • Internacional</h4>
+                            <p class="story-snippet">Não existem fronteiras para quem busca excelência! Esta RAM Rampage percorreu a maior distância até nossa loja: o cliente veio diretamente da cidade de Florida, no Uruguai! Realizamos Full PPF completo, Películas Cerâmicas e proteção técnica de chassi.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="ram_rampage_rt.jpeg" data-caption="Não existem fronteiras para quem busca excelência e proteção máxima! Esta RAM Rampage ostenta o título de veículo que percorreu a maior distância para chegar ao nosso estúdio: o cliente saiu diretamente da cidade de Florida, no Uruguai, rodando centenas de quilômetros até nossa loja após receber uma indicação dos nossos trabalhos. Para retribuir essa confiança e deixar a pick-up pronta para enfrentar qualquer estrada com segurança e estilo, realizamos um projeto completo: Full PPF para blindar 100% da pintura contra pedriscos e riscos de viagem; Película de Cerâmica em todos os vidros para máximo conforto térmico; e Full Detalhamento Automotivo com pintura personalizada das rodas e proteção técnica de chassi. Um serviço internacional de ponta!">
                                 Ler história completa <i class="fa-solid fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Projeto 3: Jeep Renegade -->
+                    <!-- Projeto 2: Audi RS6 Avant -->
                     <div class="carousel-slide" data-index="2">
-                        <div class="carousel-media-box lightbox-trigger" data-full="serviços2.jpeg" data-caption="A verdadeira prova de fogo do PPF acontece no dia a dia, e este cliente sabe disso por experiência própria! No seu Jeep anterior, também protegido com Full PPF feito na nossa loja, ele passou por alguns &quot;sustos&quot; e pequenos ralados. O resultado? A pintura original ficou 100% intacta, salva pela tecnologia e aplicação correta da película. Quando comprou este novo Jeep Renegade, ele chegou a ganhar a aplicação de PPF de presente da concessionária. No entanto, por já conhecer na prática a qualidade e o padrão de acabamento do nosso trabalho, ele preferiu remover a película e fazer a troca total em nossa loja. Confiança e proteção de verdade não têm preço!">
-                            <img src="serviços2.jpeg" alt="Jeep Renegade — Aplicação de Full PPF" loading="lazy">
+                        <div class="carousel-media-box lightbox-trigger" data-full="audi_rs6.jpeg" data-caption="Este impressionante Audi RS6 foi a primeira unidade com eixo traseiro esterçável (roda traseira direcionável) a desembarcar em Santa Catarina — e veio direto para o nosso estúdio. Para equipar este verdadeiro 'foguete' familiar sem perder o conforto e a elegância, o proprietário escolheu a aplicação das nossas películas de tecnologia cerâmica. Além de garantir um visual sofisticado e máxima privacidade, as películas de cerâmica oferecem altíssima rejeição de calor (raios IR e UV) sem escurecer excessivamente a visão noturna, mantendo o interior protegido e fresco em qualquer viagem.">
+                            <img src="audi_rs6.jpeg" alt="Audi RS6 Avant — Películas de Tecnologia Cerâmica" loading="lazy">
                             <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
                         </div>
                         <div class="carousel-caption">
-                            <p class="story-snippet">A verdadeira prova de fogo do PPF acontece no dia a dia, e este cliente sabe disso por experiência própria! No seu Jeep anterior, também protegido com Full PPF feito na nossa loja, ele passou por alguns &quot;sustos&quot; e pequenos ralados. O resultado? A pintura original ficou 100% intacta, salva pela tecnologia e aplicação correta da película. Quando comprou este novo Jeep Renegade, ele chegou a ganhar a aplicação de presente da concessionária...</p>
-                            <button type="button" class="btn-read-story lightbox-trigger" data-full="serviços2.jpeg" data-caption="A verdadeira prova de fogo do PPF acontece no dia a dia, e este cliente sabe disso por experiência própria! No seu Jeep anterior, também protegido com Full PPF feito na nossa loja, ele passou por alguns &quot;sustos&quot; e pequenos ralados. O resultado? A pintura original ficou 100% intacta, salva pela tecnologia e aplicação correta da película. Quando comprou este novo Jeep Renegade, ele chegou a ganhar a aplicação de PPF de presente da concessionária. No entanto, por já conhecer na prática a qualidade e o padrão de acabamento do nosso trabalho, ele preferiu remover a película e fazer a troca total em nossa loja. Confiança e proteção de verdade não têm preço!">
+                            <h4 class="carousel-slide-title">Audi RS6 Avant</h4>
+                            <p class="story-snippet">Primeira unidade de Audi RS6 com eixo traseiro esterçável a desembarcar em Santa Catarina. Recebeu nossas películas cerâmicas de alta performance com máxima rejeição térmica e privacidade sem perda de visão noturna.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="audi_rs6.jpeg" data-caption="Este impressionante Audi RS6 foi a primeira unidade com eixo traseiro esterçável (roda traseira direcionável) a desembarcar em Santa Catarina — e veio direto para o nosso estúdio. Para equipar este verdadeiro 'foguete' familiar sem perder o conforto e a elegância, o proprietário escolheu a aplicação das nossas películas de tecnologia cerâmica. Além de garantir um visual sofisticado e máxima privacidade, as películas de cerâmica oferecem altíssima rejeição de calor (raios IR e UV) sem escurecer excessivamente a visão noturna, mantendo o interior protegido e fresco em qualquer viagem.">
                                 Ler história completa <i class="fa-solid fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Projeto 4: Honda Accord 2023 Híbrido -->
+                    <!-- Projeto 3: Toyota GR Yaris Gazoo Racing -->
                     <div class="carousel-slide" data-index="3">
+                        <div class="carousel-media-box lightbox-trigger" data-full="toyota_gr_yaris.jpeg" data-caption="Falando em raridade e exclusividade: a divisão de alta performance da Toyota, a Gazoo Racing, trouxe para o Brasil uma edição purista e super limitada do GR Yaris — com apenas 99 unidades manuais e 99 automáticas em todo o país! Este exemplar é justamente uma dessas seletas unidades com câmbio manual. Para proteger esse ícone dos ralis de rua, realizamos um projeto completo: Full PPF para blindar toda a pintura contra pedriscos e riscos, películas de alta performance nos vidros para máximo conforto térmico e detalhes em envelopamento premium. Uma joia de colecionador pronta para acelerar!">
+                            <img src="toyota_gr_yaris.jpeg" alt="Toyota GR Yaris Gazoo Racing — Edição Limitada 99 unidades" loading="lazy">
+                            <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">Toyota GR Yaris • 1 de 99</h4>
+                            <p class="story-snippet">Edição purista hiper limitada com apenas 99 unidades manuais no Brasil. O ícone dos ralis recebeu Full PPF completo para suportar aceleração em estrada e pistas, películas térmicas e detalhes em envelopamento premium.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="toyota_gr_yaris.jpeg" data-caption="Falando em raridade e exclusividade: a divisão de alta performance da Toyota, a Gazoo Racing, trouxe para o Brasil uma edição purista e super limitada do GR Yaris — com apenas 99 unidades manuais e 99 automáticas em todo o país! Este exemplar é justamente uma dessas seletas unidades com câmbio manual. Para proteger esse ícone dos ralis de rua, realizamos um projeto completo: Full PPF para blindar toda a pintura contra pedriscos e riscos, películas de alta performance nos vidros para máximo conforto térmico e detalhes em envelopamento premium. Uma joia de colecionador pronta para acelerar!">
+                                Ler história completa <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 4: Chevrolet Corvette Stingray 0km (Vídeo) -->
+                    <div class="carousel-slide" data-index="4">
+                        <div class="carousel-media-box lightbox-trigger" data-full="video_corvette_stingray.mov" data-caption="Esta belíssima Chevrolet Corvette Stingray vermelha zero km desembarcou no Brasil pelo Porto de Itajaí, adquirida por um empresário do Norte do país. Para garantir que o superesportivo chegasse ao seu novo dono 100% protegido e pronto para acelerar na estrada, a própria empresa importadora nos contatou para realizar a aplicação de Full PPF. Toda a pintura marcante dessa máquina foi blindada contra pedriscos, riscos e agressões do transporte e do uso!">
+                            <span class="video-slide-badge"><i class="fa-solid fa-play"></i> Vídeo Real</span>
+                            <video src="video_corvette_stingray.mov" preload="metadata" muted playsinline></video>
+                            <span class="media-zoom-hint"><i class="fa-solid fa-play"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">Corvette Stingray 0km • Vídeo</h4>
+                            <p class="story-snippet">Desembarcou no Brasil pelo Porto de Itajaí para um empresário do Norte. A empresa importadora nos contratou para blindar o bólido com Full PPF antes da entrega final, garantindo proteção total contra agressões na estrada.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="video_corvette_stingray.mov" data-caption="Esta belíssima Chevrolet Corvette Stingray vermelha zero km desembarcou no Brasil pelo Porto de Itajaí, adquirida por um empresário do Norte do país. Para garantir que o superesportivo chegasse ao seu novo dono 100% protegido e pronto para acelerar na estrada, a própria empresa importadora nos contatou para realizar a aplicação de Full PPF. Toda a pintura marcante dessa máquina foi blindada contra pedriscos, riscos e agressões do transporte e do uso!">
+                                Ver vídeo e história <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 5: CFMOTO Ibex 450 0km -->
+                    <div class="carousel-slide" data-index="5">
+                        <div class="carousel-media-box lightbox-trigger" data-full="cfmoto_ibex_450.jpeg" data-caption="Entrando no mundo das novidades de duas rodas com pé direito! A CFMOTO Ibex 450 0km é o mais recente fenômeno do segmento trail/big trail, cheia de tecnologia e já com longa fila de espera no país. Essa unidade foi uma das primeiras do Brasil a receber proteção de PPF! A moto saiu direto da concessionária para o nosso estúdio para ser blindada com Full PPF para encarar o uso misto (asfalto e terra) sem risco de pedriscos e atrito no tanque.">
+                            <img src="cfmoto_ibex_450.jpeg" alt="CFMOTO Ibex 450 0km — Full PPF Trail" loading="lazy">
+                            <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">CFMOTO Ibex 450 0km</h4>
+                            <p class="story-snippet">Uma das primeiras unidades do Brasil da nova big trail. Saiu direto da concessionária para receber Full PPF em todo o conjunto, protegendo tanque e carenagens contra atrito e pedriscos do uso misto.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="cfmoto_ibex_450.jpeg" data-caption="Entrando no mundo das novidades de duas rodas com pé direito! A CFMOTO Ibex 450 0km é o mais recente fenômeno do segmento trail/big trail, cheia de tecnologia e já com longa fila de espera no país. Essa unidade foi uma das primeiras do Brasil a receber proteção de PPF! A moto saiu direto da concessionária para o nosso estúdio para ser blindada com Full PPF para encarar o uso misto (asfalto e terra) sem risco de pedriscos e atrito no tanque.">
+                                Ler história completa <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 6: Infiniti FX35 -->
+                    <div class="carousel-slide" data-index="6">
+                        <div class="carousel-media-box lightbox-trigger" data-full="infiniti_fx35.jpeg" data-caption="Direto de Balneário Camboriú para o nosso estúdio! Recebemos esse modelo super exclusivo e difícil de ver pelas ruas: um autêntico Infiniti FX35, que passou por uma verdadeira transformação de estilo. O veículo, que originalmente era preto, ganhou uma personalidade completamente renovada com o nosso serviço de envelopamento total, assumindo um visual marcante e agressivo no tom cinza fosco com proteção contra o desgaste do sol e pequenos riscos!">
+                            <img src="infiniti_fx35.jpeg" alt="Infiniti FX35 — Envelopamento Cinza Fosco" loading="lazy">
+                            <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">Infiniti FX35 • Envelopamento</h4>
+                            <p class="story-snippet">Direto de Balneário Camboriú para nosso estúdio. O SUV exclusivo trocou a pintura preta original por um visual agressivo em envelopamento cinza fosco de alta durabilidade, protegendo a lataria original.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="infiniti_fx35.jpeg" data-caption="Direto de Balneário Camboriú para o nosso estúdio! Recebemos esse modelo super exclusivo e difícil de ver pelas ruas: um autêntico Infiniti FX35, que passou por uma verdadeira transformação de estilo. O veículo, que originalmente era preto, ganhou uma personalidade completamente renovada com o nosso serviço de envelopamento total, assumindo um visual marcante e agressivo no tom cinza fosco com proteção contra o desgaste do sol e pequenos riscos!">
+                                Ler história completa <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 7: Kawasaki Z900 (Projeto Garagem Match) -->
+                    <div class="carousel-slide" data-index="7">
+                        <div class="carousel-media-box lightbox-trigger" data-full="moto_z900_infiniti.jpeg" data-caption="A satisfação com o resultado foi tanta que o projeto não parou no carro! Após ver a transformação incrível do seu Infiniti FX35 para o cinza fosco, o cliente de Balneário Camboriú não pensou duas vezes: trouxe também a sua moto para receber o mesmo serviço de envelopamento na mesma cor. Agora, o conjunto garagem está impecável, harmonizado e com uma identidade visual única!">
+                            <img src="moto_z900_infiniti.jpeg" alt="Kawasaki Z900 — Envelopamento Cinza Fosco Match" loading="lazy">
+                            <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">Kawasaki Z900 • Projeto Garagem</h4>
+                            <p class="story-snippet">Após ver a transformação do seu Infiniti FX35 para o cinza fosco, o cliente trouxe também sua moto para envelopar exatamente na mesma cor. Conjunto garagem impecável e harmonizado sobre duas e quatro rodas!</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="moto_z900_infiniti.jpeg" data-caption="A satisfação com o resultado foi tanta que o projeto não parou no carro! Após ver a transformação incrível do seu Infiniti FX35 para o cinza fosco, o cliente de Balneário Camboriú não pensou duas vezes: trouxe também a sua moto para receber o mesmo serviço de envelopamento na mesma cor. Agora, o conjunto garagem está impecável, harmonizado e com uma identidade visual única!">
+                                Ler história completa <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 8: Honda Accord Híbrido 2023 -->
+                    <div class="carousel-slide" data-index="8">
                         <div class="carousel-media-box lightbox-trigger" data-full="estrutura (2).jpeg" data-caption="Tecnologia de ponta e cuidado contínuo andam juntos! Este Honda Accord 2023 híbrido, com apenas 20 mil km rodados, é uma verdadeira raridade nas ruas do nosso estado e conta com a nossa proteção desde 2024. Para manter a pintura impecável e a estética sempre renovada, o modelo está frequentemente sob nossos cuidados e já garantiu proteção com PPF, aplicação de películas de alta performance e detalhamento automotivo, utilizando exclusivamente a linha de alta tecnologia da CarPro. O resultado é um veículo híbrido sofisticado, protegido contra o desgaste do tempo e com o brilho de quem acabou de sair da concessionária!">
                             <img src="estrutura (2).jpeg" alt="Honda Accord 2023 Híbrido — PPF, Películas e Detalhamento CarPro" loading="lazy">
                             <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
                         </div>
                         <div class="carousel-caption">
-                            <p class="story-snippet">Tecnologia de ponta e cuidado contínuo andam juntos! Este Honda Accord 2023 híbrido, com apenas 20 mil km rodados, é uma verdadeira raridade nas ruas do nosso estado e conta com a nossa proteção desde 2024. Para manter a pintura impecável e a estética sempre renovada, o modelo está frequentemente sob nossos cuidados e já garantiu proteção com PPF, aplicação de películas de alta performance e detalhamento...</p>
+                            <h4 class="carousel-slide-title">Honda Accord Híbrido 2023</h4>
+                            <p class="story-snippet">Raridade nas ruas de SC, sob nosso cuidado contínuo desde 2024. Conta com proteção PPF, películas térmicas de alta performance e detalhamento completo com produtos da linha CARPRO.</p>
                             <button type="button" class="btn-read-story lightbox-trigger" data-full="estrutura (2).jpeg" data-caption="Tecnologia de ponta e cuidado contínuo andam juntos! Este Honda Accord 2023 híbrido, com apenas 20 mil km rodados, é uma verdadeira raridade nas ruas do nosso estado e conta com a nossa proteção desde 2024. Para manter a pintura impecável e a estética sempre renovada, o modelo está frequentemente sob nossos cuidados e já garantiu proteção com PPF, aplicação de películas de alta performance e detalhamento automotivo, utilizando exclusivamente a linha de alta tecnologia da CarPro. O resultado é um veículo híbrido sofisticado, protegido contra o desgaste do tempo e com o brilho de quem acabou de sair da concessionária!">
+                                Ler história completa <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 9: Troller 4x4 Off-Road -->
+                    <div class="carousel-slide" data-index="9">
+                        <div class="carousel-media-box lightbox-trigger" data-full="troller_4x4.jpeg" data-caption="Quem disse que carro de trilha não precisa de proteção de alta tecnologia? Este Troller, feito sob medida para encarar grandes expedições e terrenos severos, veio ao nosso estúdio em busca do melhor em preservação automotiva. Realizamos a aplicação de Full PPF contra atrito de galhos e pedras, além de detalhamento técnico completo com proteção anticorrosiva de chassi. Pronto para qualquer desafio mantendo a pintura intacta!">
+                            <img src="troller_4x4.jpeg" alt="Troller 4x4 Off-Road — Full PPF e Proteção de Chassi" loading="lazy">
+                            <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">Troller 4x4 • Blindagem Off-Road</h4>
+                            <p class="story-snippet">Veículo de expedição protegido com Full PPF contra galhos, pedras e atrito constante. Recebeu também proteção técnica de chassi contra lama e oxidação para encarar qualquer desafio severo.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="troller_4x4.jpeg" data-caption="Quem disse que carro de trilha não precisa de proteção de alta tecnologia? Este Troller, feito sob medida para encarar grandes expedições e terrenos severos, veio ao nosso estúdio em busca do melhor em preservação automotiva. Realizamos a aplicação de Full PPF contra atrito de galhos e pedras, além de detalhamento técnico completo com proteção anticorrosiva de chassi. Pronto para qualquer desafio mantendo a pintura intacta!">
+                                Ler história completa <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 10: Porsche 718 Spyder Satin Gold (Vídeo) -->
+                    <div class="carousel-slide" data-index="10">
+                        <div class="carousel-media-box lightbox-trigger" data-full="video_porsche_dourada.mov" data-caption="Personalidade e exclusividade levadas a sério! Este Porsche 718 Spyder, que originalmente tem a pintura cinza, chegou até nós trazido por um cliente apaixonado pela marca para desenvolver um projeto com sua identidade. O resultado é um esportivo único, customizado nos mínimos detalhes na cor Satin Gold (dourado acetinado fosco), destacando cada linha do Spyder com padrão de excelência impecável!">
+                            <span class="video-slide-badge"><i class="fa-solid fa-play"></i> Vídeo Real</span>
+                            <video src="video_porsche_dourada.mov" preload="metadata" muted playsinline></video>
+                            <span class="media-zoom-hint"><i class="fa-solid fa-play"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">Porsche 718 Spyder Satin Gold • Vídeo</h4>
+                            <p class="story-snippet">Customização exclusiva total na cor Satin Gold (dourado acetinado) sobre a pintura original cinza. Um esportivo de tirar o fôlego com assinatura exclusiva desenvolvida pela Evolution Custom.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="video_porsche_dourada.mov" data-caption="Personalidade e exclusividade levadas a sério! Este Porsche 718 Spyder, que originalmente tem a pintura cinza, chegou até nós trazido por um cliente apaixonado pela marca para desenvolver um projeto com sua identidade. O resultado é um esportivo único, customizado nos mínimos detalhes na cor Satin Gold (dourado acetinado fosco), destacando cada linha do Spyder com padrão de excelência impecável!">
+                                Ver vídeo e história <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 11: Golf GTI 2027 (Edição Exclusiva 400un) -->
+                    <div class="carousel-slide" data-index="11">
+                        <div class="carousel-media-box lightbox-trigger" data-full="golf_gti.jpeg" data-caption="Estar entre os primeiros a proteger as maiores novidades do mercado é a nossa especialidade! Logo após o aguardado lançamento do Golf GTI no Brasil — uma versão topo de linha super exclusiva com apenas 400 unidades comercializadas no país —, já recebemos este exemplar em nosso estúdio. Realizamos a aplicação minuciosa do PPF Interno em telas e black piano, além de películas de alta performance nos vidros com bloqueio UV e conforto térmico.">
+                            <img src="golf_gti.jpeg" alt="Golf GTI — Edição Exclusiva 400 unidades" loading="lazy">
+                            <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">Golf GTI • Edição 400 Unidades</h4>
+                            <p class="story-snippet">Uma das 400 unidades comercializadas no país. Recebeu aplicação minuciosa de PPF Interno em black piano e telas sensíveis, combinado a películas de alta performance com proteção UV e conforto térmico.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="golf_gti.jpeg" data-caption="Estar entre os primeiros a proteger as maiores novidades do mercado é a nossa especialidade! Logo após o aguardado lançamento do Golf GTI no Brasil — uma versão topo de linha super exclusiva com apenas 400 unidades comercializadas no país —, já recebemos este exemplar em nosso estúdio. Realizamos a aplicação minuciosa do PPF Interno em telas e black piano, além de películas de alta performance nos vidros com bloqueio UV e conforto térmico.">
+                                Ler história completa <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 12: BYD Dolphin Eletromobilidade -->
+                    <div class="carousel-slide" data-index="12">
+                        <div class="carousel-media-box lightbox-trigger" data-full="byd_dolphin.jpeg" data-caption="Referência nacional quando o assunto é eletromobilidade! Recebemos veículos elétricos diariamente em nosso estúdio. Este BYD Dolphin 0 km veio direto da concessionária para o nosso Full PPF para suportar a rotina severa de trânsito urbano, além de película de cerâmica em todos os vidros para máxima rejeição de calor (IR). A máquina elétrica está blindada contra arranhões e pronta para rodar como nova!">
+                            <img src="byd_dolphin.jpeg" alt="BYD Dolphin — Full PPF e Películas Cerâmicas" loading="lazy">
+                            <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">BYD Dolphin • Eletromobilidade</h4>
+                            <p class="story-snippet">Referência em atendimento a veículos elétricos. Este Dolphin 0km recebeu Full PPF para suportar o uso diário no trânsito sem perder o brilho, somado a películas cerâmicas com alta rejeição de raios infravermelhos.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="byd_dolphin.jpeg" data-caption="Referência nacional quando o assunto é eletromobilidade! Recebemos veículos elétricos diariamente em nosso estúdio. Este BYD Dolphin 0 km veio direto da concessionária para o nosso Full PPF para suportar a rotina severa de trânsito urbano, além de película de cerâmica em todos os vidros para máxima rejeição de calor (IR). A máquina elétrica está blindada contra arranhões e pronta para rodar como nova!">
+                                Ler história completa <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 13: Fusca Preto Clássico -->
+                    <div class="carousel-slide" data-index="13">
+                        <div class="carousel-media-box lightbox-trigger" data-full="fusca_preto.jpeg" data-caption="Por trás de cada projeto que entra no nosso estúdio, existem histórias que tornam o nosso trabalho ainda mais especial! Este clássico Fusca Preto pertence a um grande cliente nosso, que adquiriu o veículo com um propósito emocionante: criar momentos inesquecíveis e construir lindas memórias em passeios ao lado do seu filho especial. Realizamos um polimento técnico completo para devolver a profundidade e espelhamento da tinta preta, além de uma higienização detalhada do interior. Temos o orgulho de fazer parte dessa história de amor e companheirismo!">
+                            <img src="fusca_preto.jpeg" alt="Fusca Preto Clássico — Polimento Técnico e Detalhamento Especial" loading="lazy">
+                            <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">Fusca Preto • História Especial</h4>
+                            <p class="story-snippet">Adquirido com o propósito emocionante de construir memórias inesquecíveis entre pai e filho especial. Executamos polimento técnico de alto nível na lataria preta e higienização interna completa.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="fusca_preto.jpeg" data-caption="Por trás de cada projeto que entra no nosso estúdio, existem histórias que tornam o nosso trabalho ainda mais especial! Este clássico Fusca Preto pertence a um grande cliente nosso, que adquiriu o veículo com um propósito emocionante: criar momentos inesquecíveis e construir lindas memórias em passeios ao lado do seu filho especial. Realizamos um polimento técnico completo para devolver a profundidade e espelhamento da tinta preta, além de uma higienização detalhada do interior. Temos o orgulho de fazer parte dessa história de amor e companheirismo!">
+                                Ler história completa <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 14: Toyota GR Supra -->
+                    <div class="carousel-slide" data-index="14">
+                        <div class="carousel-media-box lightbox-trigger" data-full="toyota_supra.jpeg" data-caption="A lenda dos superesportivos japoneses também marca presença no nosso estúdio! Recebemos diretamente de Jaraguá do Sul este espetacular e exclusivo Toyota GR Supra. Realizamos Detalhamento Automotivo Completo, refinando a pintura e garantindo brilho e profundidade incríveis, combinado com Full PPF blindando 100% da lataria contra pedriscos de estrada e impactos em alta velocidade. Mais uma máquina protegida com o nosso padrão de excelência!">
+                            <img src="toyota_supra.jpeg" alt="Toyota GR Supra — Full PPF e Detalhamento Técnico" loading="lazy">
+                            <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">Toyota GR Supra</h4>
+                            <p class="story-snippet">A lenda japonesa veio diretamente de Jaraguá do Sul para o nosso estúdio. Recebeu Full PPF completo e detalhamento minucioso para rodar nas estradas e pistas blindado contra impactos em alta velocidade.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="toyota_supra.jpeg" data-caption="A lenda dos superesportivos japoneses também marca presença no nosso estúdio! Recebemos diretamente de Jaraguá do Sul este espetacular e exclusivo Toyota GR Supra. Realizamos Detalhamento Automotivo Completo, refinando a pintura e garantindo brilho e profundidade incríveis, combinado com Full PPF blindando 100% da lataria contra pedriscos de estrada e impactos em alta velocidade. Mais uma máquina protegida com o nosso padrão de excelência!">
+                                Ler história completa <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 15: Jeep Renegade -->
+                    <div class="carousel-slide" data-index="15">
+                        <div class="carousel-media-box lightbox-trigger" data-full="serviços2.jpeg" data-caption="A verdadeira prova de fogo do PPF acontece no dia a dia, e este cliente sabe disso por experiência própria! No seu Jeep anterior, também protegido com Full PPF feito na nossa loja, ele passou por alguns pequenos ralados e a lataria ficou 100% intacta. Ao comprar este novo Jeep Renegade, ele chegou a ganhar a aplicação de PPF de presente da concessionária, mas preferiu remover e refazer na Evolution Custom pela certeza do nosso padrão de acabamento. Confiança e proteção não têm preço!">
+                            <img src="serviços2.jpeg" alt="Jeep Renegade — Aplicação de Full PPF" loading="lazy">
+                            <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">Jeep Renegade • Troca de PPF</h4>
+                            <p class="story-snippet">Ganhou a película da concessionária, mas fez questão de removê-la e aplicar o Full PPF da Evolution Custom pela garantia comprovada de acabamento e proteção real contra batidas no dia a dia.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="serviços2.jpeg" data-caption="A verdadeira prova de fogo do PPF acontece no dia a dia, e este cliente sabe disso por experiência própria! No seu Jeep anterior, também protegido com Full PPF feito na nossa loja, ele passou por alguns pequenos ralados e a lataria ficou 100% intacta. Ao comprar este novo Jeep Renegade, ele chegou a ganhar a aplicação de PPF de presente da concessionária, mas preferiu remover e refazer na Evolution Custom pela certeza do nosso padrão de acabamento. Confiança e proteção não têm preço!">
+                                Ler história completa <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 16: Estrutura da Loja (HB20 e Porsche) -->
+                    <div class="carousel-slide" data-index="16">
+                        <div class="carousel-media-box lightbox-trigger" data-full="eestrutura2.jpeg" data-caption="Nossa estrutura foi projetada em cada detalhe para entregar o mesmo padrão de excelência, não importa o veículo! Nesta foto, dá para ver exatamente na prática como a nossa loja funciona: aqui, um HB20 do dia a dia e um raríssimo Porsche recebem o mesmo nível de cuidado e o resultado perfeito que seu carro merece!">
+                            <img src="eestrutura2.jpeg" alt="Estrutura Evolution Custom — Padrão de excelência para todos os veículos" loading="lazy">
+                            <span class="media-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                        <div class="carousel-caption">
+                            <h4 class="carousel-slide-title">Nosso Padrão Multimarca</h4>
+                            <p class="story-snippet">Nossa estrutura foi projetada em cada detalhe para entregar o mesmo padrão de excelência: aqui, um HB20 do dia a dia e um raríssimo Porsche recebem rigorosamente o mesmo nível de cuidado e perfeição.</p>
+                            <button type="button" class="btn-read-story lightbox-trigger" data-full="eestrutura2.jpeg" data-caption="Nossa estrutura foi projetada em cada detalhe para entregar o mesmo padrão de excelência, não importa o veículo! Nesta foto, dá para ver exatamente na prática como a nossa loja funciona: aqui, um HB20 do dia a dia e um raríssimo Porsche recebem o mesmo nível de cuidado e o resultado perfeito que seu carro merece!">
                                 Ler história completa <i class="fa-solid fa-arrow-right"></i>
                             </button>
                         </div>
@@ -532,8 +810,11 @@
 
             <!-- Google reviews badge -->
             <div class="reviews-cta scroll-reveal">
-                <i class="fa-brands fa-google text-green"></i>
-                <span>+50 avaliações 5 estrelas no Google</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=Evolution+Custom+SC+Kobrasol+Sao+Jose" target="_blank" rel="noopener noreferrer" aria-label="Ver todas as avaliações da Evolution Custom no Google">
+                    <i class="fa-brands fa-google text-green"></i>
+                    <span>+50 avaliações 5 estrelas no Google</span>
+                    <span class="reviews-cta-action">Ver todas no Google <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
             </div>
         </div>
     </section>
@@ -626,6 +907,7 @@
             </button>
             <div class="lightbox-media-container">
                 <img src="" alt="" id="lightboxImg" class="lightbox-image">
+                <video id="lightboxVideo" class="lightbox-video" controls playsinline></video>
             </div>
             <div class="lightbox-caption" id="lightboxCaption"></div>
         </div>
@@ -635,6 +917,6 @@
     <div class="custom-cursor-dot" id="cursorDot"></div>
     <div class="custom-cursor-glow" id="cursorGlow"></div>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>

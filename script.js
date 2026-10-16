@@ -469,16 +469,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxBackdrop = document.getElementById('lightboxBackdrop');
     const lightboxClose    = document.getElementById('lightboxClose');
     const lightboxImg      = document.getElementById('lightboxImg');
+    const lightboxVideo    = document.getElementById('lightboxVideo');
     const lightboxCaption  = document.getElementById('lightboxCaption');
 
     function openLightbox(src, caption) {
-        if (!lightboxModal || !lightboxImg) return;
-        lightboxImg.src = src;
-        lightboxImg.alt = caption || 'Visualização em alta resolução';
+        if (!lightboxModal) return;
+        const isVideo = src.toLowerCase().endsWith('.mov') || src.toLowerCase().endsWith('.mp4');
+
+        if (isVideo) {
+            if (lightboxImg) lightboxImg.style.display = 'none';
+            if (lightboxVideo) {
+                lightboxVideo.style.display = 'block';
+                lightboxVideo.src = src;
+                lightboxVideo.play().catch(() => {});
+            }
+        } else {
+            if (lightboxVideo) {
+                lightboxVideo.pause();
+                lightboxVideo.removeAttribute('src');
+                lightboxVideo.load();
+                lightboxVideo.style.display = 'none';
+            }
+            if (lightboxImg) {
+                lightboxImg.style.display = 'block';
+                lightboxImg.src = src;
+                lightboxImg.alt = caption || 'Visualização em alta resolução';
+            }
+        }
+
         if (lightboxCaption) {
             lightboxCaption.textContent = caption || '';
             lightboxCaption.style.display = caption ? 'inline-block' : 'none';
         }
+
         lightboxModal.classList.add('active');
         lightboxModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -490,6 +513,12 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         if (lightboxImg) lightboxImg.src = '';
+        if (lightboxVideo) {
+            lightboxVideo.pause();
+            lightboxVideo.removeAttribute('src');
+            lightboxVideo.load();
+            lightboxVideo.style.display = 'none';
+        }
     }
 
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
@@ -503,7 +532,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
         trigger.addEventListener('click', () => {
-            const fullSrc = trigger.getAttribute('data-full') || trigger.querySelector('img')?.getAttribute('src');
+            const fullSrc = trigger.getAttribute('data-full') || trigger.querySelector('img, video')?.getAttribute('src');
             const caption = trigger.getAttribute('data-caption') || trigger.querySelector('img')?.getAttribute('alt') || '';
             if (fullSrc) openLightbox(fullSrc, caption);
         });
